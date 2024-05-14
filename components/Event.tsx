@@ -1,9 +1,15 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import { eventDummy } from "../constants/eventDummy";
 import { Button } from "../ui/Button";
 
 export const Event = () => {
+  const router = useRouter();
+
+  const onToActivity = () => {
+    router.push("/activity");
+  };
   return (
     <div className="py-8 px-20 mt-14">
       {/* heading */}
@@ -12,6 +18,7 @@ export const Event = () => {
           Event dan Komunitas GDSquad
         </h1>
         <button
+          onClick={onToActivity}
           className={`mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
         >
           Aktifitas Lainnya
