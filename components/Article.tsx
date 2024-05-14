@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { articleDummy } from "../constants/articleDummy";
 import { eventDummy } from "../constants/eventDummy";
+import { Card } from "../ui/Card";
 
 export const Article = () => {
   return (
@@ -27,20 +28,11 @@ export const Article = () => {
         {articleDummy?.slice(0, 8).map((event) => {
           return (
             <div className="relative flex flex-col gap-2">
-              <Image
-                src={event?.image}
-                width={385}
-                height={239}
-                alt="event_image"
+              <Card
+                image={event?.image}
+                title={event?.title}
+                content={event?.content}
               />
-              <div>
-                <h2 className="text-[30px] text-purple-primary font-bold mt-0 line-clamp-2 h-[80px]">
-                  {event?.title}
-                </h2>
-                <p className="text-grey-primary text-[18px] mt-2 lg:w-3/4 line-clamp-5">
-                  {event?.content}
-                </p>
-              </div>
             </div>
           );
         })}
