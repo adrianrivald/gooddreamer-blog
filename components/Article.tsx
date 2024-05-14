@@ -1,20 +1,18 @@
 import Image from "next/image";
 import React from "react";
+import { articleDummy } from "../constants/articleDummy";
 import { eventDummy } from "../constants/eventDummy";
-import { Button } from "../ui/Button";
 
-export const Event = () => {
+export const Article = () => {
   return (
     <div className="py-8 px-20 mt-14">
       {/* heading */}
       <div className="flex justify-between">
-        <h1 className="text-[40px] text-purple-primary font-bold">
-          Event dan Komunitas GDSquad
-        </h1>
+        <h1 className="text-[40px] text-purple-primary font-bold">Artikel</h1>
         <button
           className={`mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
         >
-          Aktifitas Lainnya
+          Artikel Lainnya
           <Image
             src="/assets/icons/arrow.svg"
             width={12}
@@ -25,10 +23,10 @@ export const Event = () => {
       </div>
 
       {/* content */}
-      <div className="flex flex-col gap-8 mt-12">
-        {eventDummy?.map((event) => {
+      <div className="grid grid-cols-4 gap-8 mt-12">
+        {articleDummy?.slice(0, 8).map((event) => {
           return (
-            <div className="relative flex gap-6 mt-4">
+            <div className="relative flex flex-col gap-2">
               <Image
                 src={event?.image}
                 width={385}
@@ -36,23 +34,12 @@ export const Event = () => {
                 alt="event_image"
               />
               <div>
-                <h2 className="text-[30px] text-purple-primary font-bold mt-0">
+                <h2 className="text-[30px] text-purple-primary font-bold mt-0 line-clamp-2 h-[80px]">
                   {event?.title}
                 </h2>
-                <p className="text-grey-primary text-[18px] mt-2 lg:w-3/4">
+                <p className="text-grey-primary text-[18px] mt-2 lg:w-3/4 line-clamp-5">
                   {event?.content}
                 </p>
-                <button
-                  className={`absolute bottom-0 font-bold mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
-                >
-                  Lebih Detail
-                  <Image
-                    src="/assets/icons/arrow.svg"
-                    width={12}
-                    height={12}
-                    alt="arrow"
-                  />
-                </button>{" "}
               </div>
             </div>
           );

@@ -1,8 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Announcement } from "../components/Announcement";
+import { Article } from "../components/Article";
 import { Author } from "../components/Author";
 import { Event } from "../components/Event";
+import { Faq } from "../components/Faq";
 import { Hero } from "../components/Hero";
 
 export default function Home() {
@@ -19,6 +21,8 @@ export default function Home() {
         <Announcement />
         <Event />
         <Author />
+        <Article />
+        <Faq />
       </main>
     </div>
   );
