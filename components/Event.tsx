@@ -41,6 +41,7 @@ export const Event = () => {
                 width={385}
                 height={239}
                 alt="event_image"
+                className="w-[385px] h-[239px] object-cover"
               />
               <div>
                 <h2 className="text-[30px] text-purple-primary font-bold mt-0">
@@ -50,7 +51,7 @@ export const Event = () => {
                   {event?.content}
                 </p>
                 <button
-                  className={`absolute bottom-0 font-bold mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
+                  className={` font-bold mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
                 >
                   Lebih Detail
                   <Image

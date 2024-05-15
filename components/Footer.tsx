@@ -40,7 +40,7 @@ export const Footer = () => {
         <div className="relative mt-4">
           <input
             type="email"
-            className="rounded-[8px] p-[12px] w-full border border-white bg-black-primary placeholder:pl-10"
+            className="rounded-[8px] py-[12px] pl-12 w-full border border-white bg-black-primary"
             placeholder="Tulis emailmu disini"
           />
           <Image
