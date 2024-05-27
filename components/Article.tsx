@@ -35,11 +35,23 @@ export const Article = () => {
         {articleDummy?.slice(0, 8).map((event) => {
           return (
             <div className="relative flex flex-col gap-2">
-              <Card
-                image={event?.image}
-                title={event?.title}
-                content={event?.content}
-              />
+              <div className="relative flex flex-col gap-2">
+                <Image
+                  src={event?.image}
+                  width={385}
+                  height={239}
+                  alt="event_image"
+                  className={`w-full rounded-t-lg`}
+                />
+                <div className="w-full">
+                  <h2 className="text-[30px] text-purple-primary font-bold mt-0 line-clamp-2 max-h-[80px]">
+                    {event?.title}
+                  </h2>
+                  <p className="text-grey-primary text-[18px] mt-2 line-clamp-3">
+                    {event?.content}
+                  </p>
+                </div>
+              </div>
             </div>
           );
         })}

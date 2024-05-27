@@ -32,7 +32,7 @@ export const Card = (props: CardProps) => {
         <h2 className="text-[30px] text-purple-primary font-bold mt-0 line-clamp-2 max-h-[80px]">
           {title}
         </h2>
-        <p className="text-grey-primary text-[18px] mt-2 line-clamp-5">
+        <p className="text-grey-primary text-[18px] mt-2 line-clamp-3">
           {content}
         </p>
       </div>
