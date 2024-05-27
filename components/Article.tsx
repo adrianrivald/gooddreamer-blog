@@ -1,16 +1,23 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import { articleDummy } from "../constants/articleDummy";
 import { eventDummy } from "../constants/eventDummy";
 import { Card } from "../ui/Card";
 
 export const Article = () => {
+  const router = useRouter();
+
+  const onToArticle = () => {
+    router.push("/article");
+  };
   return (
     <div className="py-8 px-20 mt-14">
       {/* heading */}
       <div className="flex justify-between">
         <h1 className="text-[40px] text-purple-primary font-bold">Artikel</h1>
         <button
+          onClick={onToArticle}
           className={`mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
         >
           Artikel Lainnya
