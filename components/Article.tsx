@@ -31,7 +31,7 @@ export const Article = () => {
       </div>
 
       {/* content */}
-      <div className="grid grid-cols-4 gap-8 mt-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
         {articleDummy?.slice(0, 8).map((event) => {
           return (
             <div className="relative flex flex-col gap-2">
@@ -41,7 +41,7 @@ export const Article = () => {
                   width={385}
                   height={239}
                   alt="event_image"
-                  className={`w-full rounded-t-lg`}
+                  className={`w-full rounded-t-lg h-[188px] object-cover`}
                 />
                 <div className="w-full">
                   <h2 className="text-[30px] text-purple-primary font-bold mt-0 line-clamp-2 max-h-[80px]">

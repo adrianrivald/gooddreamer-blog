@@ -59,7 +59,7 @@ export default function FAQPage() {
               ))}
             </ul>
           </div>
-          <div className="w-1/2 p-4">
+          <div className="w-1/2 p-4 transition-all">
             <h1 className="text-[30px] font-bold leading-[40px]">
               {faqDummy[selectedFaqIndex]?.title}
             </h1>

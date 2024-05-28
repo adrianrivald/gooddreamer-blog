@@ -41,7 +41,7 @@ export const Event = () => {
                 width={385}
                 height={239}
                 alt="event_image"
-                className="w-[385px] h-[239px] object-cover"
+                className="w-[385px] h-[239px] object-cover rounded-[10px] flex-none"
               />
               <div>
                 <h2 className="text-[30px] text-purple-primary font-bold mt-0">
