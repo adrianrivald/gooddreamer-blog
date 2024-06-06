@@ -3,11 +3,13 @@ import { useRouter } from "next/router";
 import React from "react";
 import { articleDummy } from "../constants/articleDummy";
 import { eventDummy } from "../constants/eventDummy";
+import { useArticleList } from "../services/article/use-article-list";
 import { Card } from "../ui/Card";
 
 export const Article = () => {
   const router = useRouter();
-
+  const { data } = useArticleList();
+  const articles = data?.data;
   const onToArticle = () => {
     router.push("/article");
   };
@@ -32,12 +34,12 @@ export const Article = () => {
 
       {/* content */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-        {articleDummy?.slice(0, 8).map((event) => {
+        {articles?.slice(0, 8).map((article: any) => {
           return (
             <div className="relative flex flex-col gap-2">
               <div className="relative flex flex-col gap-2">
                 <Image
-                  src={event?.image}
+                  src={article?.image}
                   width={385}
                   height={239}
                   alt="event_image"
@@ -45,10 +47,10 @@ export const Article = () => {
                 />
                 <div className="w-full">
                   <h2 className="text-[30px] text-purple-primary font-bold mt-0 line-clamp-2 max-h-[80px]">
-                    {event?.title}
+                    {article?.title}
                   </h2>
                   <p className="text-grey-primary text-[18px] mt-2 line-clamp-3">
-                    {event?.content}
+                    {article?.content_preview}
                   </p>
                 </div>
               </div>
