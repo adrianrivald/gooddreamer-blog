@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -18,11 +19,21 @@ export const Navbar = () => {
         className="cursor-pointer"
       />
       <ol className="flex gap-12 justify-between text-purple-primary">
-        <li className="cursor-pointer">Pengumuman</li>
-        <li className="cursor-pointer">Aktivitas</li>
-        <li className="cursor-pointer">Penulis</li>
-        <li className="cursor-pointer">Artikel</li>
-        <li className="cursor-pointer">FAQ</li>
+        <li className="cursor-pointer">
+          <Link href="/announcement">Pengumuman</Link>
+        </li>
+        <li className="cursor-pointer">
+          <Link href="/activity">Aktivitas</Link>
+        </li>
+        <li className="cursor-pointer">
+          <Link href="/author">Penulis</Link>
+        </li>
+        <li className="cursor-pointer">
+          <Link href="/article">Artikel</Link>
+        </li>
+        <li className="cursor-pointer">
+          <Link href="/faq">FAQ</Link>
+        </li>
       </ol>
     </div>
   );
