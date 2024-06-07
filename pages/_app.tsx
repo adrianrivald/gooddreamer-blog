@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </div>
         <Footer />
       </main>
+      <Toaster />
     </QueryClientProvider>
   );
 }

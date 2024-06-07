@@ -1,16 +1,76 @@
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
-import { Hero } from "../../components/Hero";
-import { faqDummy } from "../../constants/faqDummy";
-import { Card } from "../../ui/Card";
+import React, { useEffect } from "react";
+import { idText } from "typescript";
+import { API_URL } from "../../constants/constants";
+import { useFaqList } from "../../services/faq/use-faq-list";
+import { useFaqReact } from "../../services/faq/use-faq-react";
+
+interface FaqDetailProps {
+  id: number;
+  likes: number;
+  dislikes: number;
+  answer: string;
+  question: string;
+}
+
+interface FaqQuestionProps {
+  question: string;
+  id: number;
+}
 
 export default function FAQPage() {
   const [selectedFaqIndex, setSelectedFaqIndex] = React.useState(0);
+  const { data, isLoading } = useFaqList();
+  const faqQuestion: FaqQuestionProps[] = data?.data;
+  const [faqDetail, setFaqDetail] = React.useState<FaqDetailProps>();
+  const { mutate: addReaction } = useFaqReact();
 
-  const onClickFaqIndex = (index: number) => {
+  useEffect(() => {
+    const getFirstData = async () => {
+      if (faqQuestion) {
+        await fetch(`${API_URL}/faq/${faqQuestion[0]?.id}`)
+          .then((res) => res.json())
+          .then((val) => {
+            setFaqDetail(val?.data);
+          });
+      }
+    };
+    getFirstData();
+  }, [faqQuestion]);
+
+  const onClickFaqIndex = async (index: number, id: number) => {
     setSelectedFaqIndex(index);
+    await fetch(`${API_URL}/faq/${id}`)
+      .then((res) => res.json())
+      .then((val) => {
+        setFaqDetail(val?.data);
+      });
   };
+
+  const onClickReaction = (id?: number, type?: string) => {
+    if (id) {
+      if (type === "like") {
+        addReaction({
+          faqId: id,
+          like: true,
+        });
+      } else {
+        addReaction({
+          faqId: id,
+          like: false,
+        });
+      }
+    }
+  };
+
+  useEffect(() => {
+    console.log(faqDetail, "faqDetaile");
+  }, [faqDetail, selectedFaqIndex]);
+
+  if (isLoading) {
+    return false;
+  }
 
   return (
     <div>
@@ -47,31 +107,30 @@ export default function FAQPage() {
         <div className="flex pt-2 pb-8 gap-8 px-20 mt-4">
           <div className="bg-purple-primary p-4 text-white rounded-[5px] text-[20px] w-1/2 h-screen">
             <ul className="flex flex-col gap-4 list-disc list-inside">
-              {faqDummy?.map((val, index) => (
+              {faqQuestion?.map((val: FaqQuestionProps, index: number) => (
                 <li
-                  onClick={() => onClickFaqIndex(index)}
+                  onClick={() => onClickFaqIndex(index, val?.id)}
                   className={`transition-all  cursor-pointer p-4 rounded-[5px] ${
                     selectedFaqIndex === index ? "bg-purple-third" : ""
                   }`}
+                  key={index}
                 >
-                  {val?.title}
+                  {val?.question}
                 </li>
               ))}
             </ul>
           </div>
           <div className="w-1/2 p-4 transition-all">
             <h1 className="text-[30px] font-bold leading-[40px]">
-              {faqDummy[selectedFaqIndex]?.title}
+              {faqDetail?.question}
             </h1>
-            <p className="mt-4">{faqDummy[selectedFaqIndex]?.createdAt}</p>
-            <div
-              className="mt-4"
-              dangerouslySetInnerHTML={{
-                __html: faqDummy[selectedFaqIndex]?.content,
-              }}
-            />{" "}
+            {/* <p className="mt-4">{faqDetail?.createdAt}</p> */}
+            <p className="mt-4">{faqDetail?.answer}</p>
             <div className="flex items-center gap-4 mt-12">
-              <button className="w-[200px] justify-center rounded-[8px] bg-[#F7F7F7] px-[12px] py-[10px] text-[14px] text-[#BDBDBD] flex items-center gap-2">
+              <button
+                onClick={() => onClickReaction(faqDetail?.id, "like")}
+                className="w-[200px] justify-center rounded-[8px] bg-[#F7F7F7] px-[12px] py-[10px] text-[14px] text-[#BDBDBD] flex items-center gap-2 focus:outline-none"
+              >
                 <Image
                   src="/assets/icons/thumb.svg"
                   width={20}
@@ -80,7 +139,10 @@ export default function FAQPage() {
                 />
                 <span>Membantu</span>
               </button>
-              <button className="w-[200px] justify-center rounded-[8px] bg-[#F7F7F7] px-[12px] py-[10px] text-[14px] text-[#BDBDBD] flex items-center gap-2">
+              <button
+                onClick={() => onClickReaction(faqDetail?.id, "dislike")}
+                className="w-[200px] justify-center rounded-[8px] bg-[#F7F7F7] px-[12px] py-[10px] text-[14px] text-[#BDBDBD] flex items-center gap-2 focus:outline-none"
+              >
                 <Image
                   src="/assets/icons/down-thumb.svg"
                   width={20}
