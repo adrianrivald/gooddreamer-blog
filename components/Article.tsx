@@ -3,15 +3,20 @@ import { useRouter } from "next/router";
 import React from "react";
 import { articleDummy } from "../constants/articleDummy";
 import { eventDummy } from "../constants/eventDummy";
-import { useArticleList } from "../services/article/use-article-list";
+import { useContentList } from "../services/content/use-content-list";
 import { Card } from "../ui/Card";
 
 export const Article = () => {
   const router = useRouter();
-  const { data } = useArticleList();
+  const { data } = useContentList("article");
   const articles = data?.data;
   const onToArticle = () => {
     router.push("/article");
+  };
+  const onClickArticleItem = (id: number) => {
+    router.push({
+      pathname: `/article/${id}`,
+    });
   };
   return (
     <div className="py-8 px-20 mt-14">
@@ -36,7 +41,10 @@ export const Article = () => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
         {articles?.slice(0, 8).map((article: any) => {
           return (
-            <div className="relative flex flex-col gap-2">
+            <div
+              onClick={() => onClickArticleItem(article?.id)}
+              className="relative flex flex-col gap-2 cursor-pointer"
+            >
               <div className="relative flex flex-col gap-2">
                 <Image
                   src={article?.image}
