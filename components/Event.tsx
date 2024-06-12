@@ -28,7 +28,7 @@ export const Event = () => {
         </h1>
         <button
           onClick={onToActivity}
-          className={`mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
+          className={`h-[50px] mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
         >
           Aktifitas Lainnya
           <Image
@@ -46,7 +46,7 @@ export const Event = () => {
           return (
             <div className="relative flex gap-6 mt-4">
               <Image
-                src={activity?.image}
+                src={activity?.thumbnail}
                 width={385}
                 height={239}
                 alt="event_image"

@@ -25,7 +25,7 @@ export const Article = () => {
         <h1 className="text-[40px] text-purple-primary font-bold">Artikel</h1>
         <button
           onClick={onToArticle}
-          className={`mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
+          className={`h-[50px] mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
         >
           Artikel Lainnya
           <Image
@@ -47,7 +47,7 @@ export const Article = () => {
             >
               <div className="relative flex flex-col gap-2">
                 <Image
-                  src={article?.image}
+                  src={article?.thumbnail}
                   width={385}
                   height={239}
                   alt="event_image"
