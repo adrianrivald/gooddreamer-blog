@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import { useContentById } from "../../services/content/use-content-detail";
+import parse from "html-react-parser";
+import DOMPurify from "dompurify";
 
 export default function ActivityDetail() {
   const router = useRouter();
@@ -28,10 +30,20 @@ export default function ActivityDetail() {
         <h1 className="text-[40px] text-purple-primary font-bold mt-14">
           {contentData?.title}
         </h1>
-        <div
-          className="mt-8"
-          dangerouslySetInnerHTML={{ __html: contentData?.content }}
-        />
+        <div className="mt-8">
+          {contentData?.content &&
+            parse(
+              // DOMPurify.sanitize(
+              contentData?.content
+                ?.replaceAll("<p", "<br/><p")
+                ?.replaceAll("<hr", "<br/><hr")
+                .replaceAll("<h1", "<br/><h1")
+                .replaceAll("<h2", "<br/><h2")
+                .replaceAll("<h3", "<br/><h3")
+                .replaceAll("<ul", `<ul style="list-style-type: disc;" `)
+              // )
+            )}
+        </div>
       </main>
     </div>
   );
