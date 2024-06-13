@@ -2,21 +2,21 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import { eventDummy } from "../constants/eventDummy";
-import { useContentList } from "../services/content/use-content-list";
+import { useActivityList } from "../services/content/use-content-list";
 import { Button } from "../ui/Button";
 
 export const Event = () => {
   const router = useRouter();
-  const { data } = useContentList("activity");
+  const { data } = useActivityList();
   const activities = data?.data;
 
   const onToActivity = () => {
     router.push("/activity");
   };
 
-  const onClickActivityItem = (id: number) => {
+  const onClickActivityItem = (uri: string) => {
     router.push({
-      pathname: `/activity/${id}`,
+      pathname: `/activity/${uri}`,
     });
   };
   return (
@@ -60,7 +60,7 @@ export const Event = () => {
                   {activity?.content_preview}
                 </p>
                 <button
-                  onClick={() => onClickActivityItem(activity?.id)}
+                  onClick={() => onClickActivityItem(activity?.uri)}
                   className={` font-bold mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
                 >
                   Lebih Detail

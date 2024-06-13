@@ -3,19 +3,19 @@ import { useRouter } from "next/router";
 import React from "react";
 import { articleDummy } from "../constants/articleDummy";
 import { eventDummy } from "../constants/eventDummy";
-import { useContentList } from "../services/content/use-content-list";
+import { useArticleList } from "../services/content/use-content-list";
 import { Card } from "../ui/Card";
 
 export const Article = () => {
   const router = useRouter();
-  const { data } = useContentList("article");
+  const { data } = useArticleList();
   const articles = data?.data;
   const onToArticle = () => {
     router.push("/article");
   };
-  const onClickArticleItem = (id: number) => {
+  const onClickArticleItem = (uri: string) => {
     router.push({
-      pathname: `/article/${id}`,
+      pathname: `/article/${uri}`,
     });
   };
   return (
@@ -42,7 +42,7 @@ export const Article = () => {
         {articles?.slice(0, 8).map((article: any) => {
           return (
             <div
-              onClick={() => onClickArticleItem(article?.id)}
+              onClick={() => onClickArticleItem(article?.uri)}
               className="relative flex flex-col gap-2 cursor-pointer"
             >
               <div className="relative flex flex-col gap-2">

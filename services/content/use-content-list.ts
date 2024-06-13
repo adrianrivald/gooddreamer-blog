@@ -11,6 +11,18 @@ export const fetchContentList = async (slug: string) => {
   return data;
 };
 
-export const useContentList = (slug: string) => {
-  return useQuery({queryKey: ["content-list"], queryFn: () =>fetchContentList(slug)});
+export const useArticleList = () => {
+  return useQuery({queryKey: ["article-list"], queryFn: () =>fetchContentList("article")});
+};
+
+export const useAnnouncementList = () => {
+  return useQuery({queryKey: ["announcement-list"], queryFn: () =>fetchContentList("announcement")});
+};
+
+export const usePromoList = () => {
+  return useQuery({queryKey: ["promo-list"], queryFn: () =>fetchContentList("promo")});
+};
+
+export const useActivityList = () => {
+  return useQuery({queryKey: ["activity-list"], queryFn: () =>fetchContentList("activity")});
 };
