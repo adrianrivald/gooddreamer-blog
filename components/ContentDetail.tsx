@@ -35,10 +35,10 @@ export function ContentDetail(props: ContentDetailProps) {
             props?.data?.content
               ?.replaceAll("<p", "<br/><p")
               ?.replaceAll("<hr", "<br/><hr")
-              .replaceAll("<h1", "<br/><h1")
-              .replaceAll("<h2", "<br/><h2")
-              .replaceAll("<h3", "<br/><h3")
-              .replaceAll("<ul", `<ul style="list-style-type: disc;" `)
+              ?.replaceAll("<h1", "<br/><h1")
+              ?.replaceAll("<h2", "<br/><h2")
+              ?.replaceAll("<h3", "<br/><h3")
+              ?.replaceAll("<ul", `<ul style="list-style-type: disc;" `)
             // )
           )}
       </main>
