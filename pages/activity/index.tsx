@@ -1,9 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Hero } from "../../components/Hero";
+import { useActivityList } from "../../services/content/use-content-list";
 import { Card } from "../../ui/Card";
 
 export default function ActivityPage() {
+  const { data } = useActivityList();
+  const activities = data?.data;
+
   return (
     <div>
       <Head>
@@ -22,14 +26,16 @@ export default function ActivityPage() {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-12 py-4 px-20 mt-4">
-          {Array.from({ length: 9 }).map(() => (
-            <Card
-              withDetailButton
-              image="/assets/images/dummyevent.png"
-              title="test"
-              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-            />
-          ))}
+          {activities &&
+            activities?.map((activity) => (
+              <Card
+                withDetailButton
+                image={activity?.thumbnail}
+                title={activity?.title}
+                content={activity?.content}
+                url={`/activity/${activity?.uri}`}
+              />
+            ))}
         </div>
       </main>
     </div>
