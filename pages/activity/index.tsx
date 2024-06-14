@@ -32,7 +32,7 @@ export default function ActivityPage() {
                 withDetailButton
                 image={activity?.thumbnail}
                 title={activity?.title}
-                content={activity?.content}
+                content={activity?.content_preview}
                 url={`/activity/${activity?.uri}`}
               />
             ))}

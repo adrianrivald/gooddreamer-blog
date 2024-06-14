@@ -8,8 +8,22 @@ interface ContentDetailProps {
   data: Content;
   title: string;
 }
-
 export function ContentDetail(props: ContentDetailProps) {
+  console.log(
+    props?.data?.content &&
+      props?.data?.content
+        ?.replaceAll("<p", "<br/><p")
+        ?.replaceAll("<img", "<br/><img")
+        ?.replaceAll("<hr", "<br/><hr")
+        ?.replaceAll("<h1", "<br/><h1")
+        ?.replaceAll("<h2", "<br/><h2")
+        ?.replaceAll("<h3", "<br/><h3")
+        ?.replaceAll(
+          "<ul",
+          `<ul className="list-inside" style="list-style-type: disc;" `
+        ),
+    "t"
+  );
   return (
     <div>
       <Head>
@@ -34,11 +48,17 @@ export function ContentDetail(props: ContentDetailProps) {
             // DOMPurify.sanitize(
             props?.data?.content
               ?.replaceAll("<p", "<br/><p")
+              ?.replaceAll("<img", "<br/><img")
               ?.replaceAll("<hr", "<br/><hr")
               ?.replaceAll("<h1", "<br/><h1")
               ?.replaceAll("<h2", "<br/><h2")
               ?.replaceAll("<h3", "<br/><h3")
-              ?.replaceAll("<ul", `<ul style="list-style-type: disc;" `)
+              ?.replaceAll(
+                "<ul",
+                `<ul className="list-inside" style="list-style-type: disc;" `
+              )
+              ?.replaceAll("<li><br/><p>", "<br/><li>")
+              ?.replaceAll("</p></li>", "</li>")
             // )
           )}
       </main>
