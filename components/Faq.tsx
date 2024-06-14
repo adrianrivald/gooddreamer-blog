@@ -1,7 +1,9 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
 export const Faq = () => {
+  const router = useRouter();
   const [toggleFaq1, setToggleFaq1] = React.useState(false);
   const [toggleFaq2, setToggleFaq2] = React.useState(false);
 
@@ -17,11 +19,16 @@ export const Faq = () => {
     });
   };
 
+  const onToFaq = () => {
+    router.push("/faq");
+  };
+
   return (
     <div className="bg-purple-primary py-14 px-8 lg:px-20 mt-14">
       <div className="flex justify-between">
         <h1 className="text-[40px] text-white font-bold">FAQ</h1>
         <button
+          onClick={onToFaq}
           className={`mt-4 bg-purple-secondary text-purple-primary flex justify-between items-center gap-2 rounded-[5px] focus:outline-none w-[206px] py-2 px-4 `}
         >
           Lihat Lainnya
