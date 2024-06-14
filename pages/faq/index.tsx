@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { idText } from "typescript";
 import { API_URL } from "../../constants/constants";
 import { useFaqList } from "../../services/faq/use-faq-list";
@@ -68,6 +68,19 @@ export default function FAQPage() {
     console.log(faqDetail, "faqDetaile");
   }, [faqDetail, selectedFaqIndex]);
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [submittedKeyword, setSubmittedKeyword] = useState("");
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      console.log(searchTerm);
+      setSubmittedKeyword(searchTerm);
+      // Send Axios request here
+    }, 500);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchTerm]);
+
   if (isLoading) {
     return false;
   }
@@ -91,6 +104,7 @@ export default function FAQPage() {
             <div className="relative">
               <input
                 type="text"
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className="h-[60px] pl-12 w-full rounded-[8px] text-[14px] placeholder:text-[14px] text-grey-sixth px-[12px] py-[5px] bg-grey-fifth focus:outline-none"
                 placeholder="Cari topik pertanyaan terkait"
               />
@@ -107,17 +121,23 @@ export default function FAQPage() {
         <div className="flex pt-2 pb-8 gap-8 px-20 mt-4">
           <div className="bg-purple-primary p-4 text-white rounded-[5px] text-[20px] w-1/2 h-screen">
             <ul className="flex flex-col gap-4 list-disc list-inside">
-              {faqQuestion?.map((val: FaqQuestionProps, index: number) => (
-                <li
-                  onClick={() => onClickFaqIndex(index, val?.id)}
-                  className={`transition-all  cursor-pointer p-4 rounded-[5px] ${
-                    selectedFaqIndex === index ? "bg-purple-third" : ""
-                  }`}
-                  key={index}
-                >
-                  {val?.question}
-                </li>
-              ))}
+              {faqQuestion
+                ?.filter((question) =>
+                  question?.question
+                    ?.toLowerCase()
+                    .includes(submittedKeyword?.toLowerCase())
+                )
+                .map((val: FaqQuestionProps, index: number) => (
+                  <li
+                    onClick={() => onClickFaqIndex(index, val?.id)}
+                    className={`transition-all  cursor-pointer p-4 rounded-[5px] ${
+                      selectedFaqIndex === index ? "bg-purple-third" : ""
+                    }`}
+                    key={index}
+                  >
+                    {val?.question}
+                  </li>
+                ))}
             </ul>
           </div>
           <div className="w-1/2 p-4 transition-all">
