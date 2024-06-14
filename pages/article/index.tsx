@@ -7,6 +7,9 @@ import { Card } from "../../ui/Card";
 export default function ArticlePage() {
   const { data } = useArticleList();
   const articles = data?.data;
+
+  if (!articles?.length) return null;
+
   return (
     <div>
       <Head>
