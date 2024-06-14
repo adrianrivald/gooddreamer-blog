@@ -8,14 +8,14 @@ export const Author = () => {
 
   console.log(favoriteAuthorsData, "fava");
   return (
-    <div className="p-20 mt-14 bg-black-primary">
-      <h2 className="text-[30px] font-bold text-white text-center lg:w-3/4 mx-auto">
+    <div className="p-8 lg:p-20 mt-14 bg-black-primary">
+      <h2 className="text-[24px] lg:text-[30px] font-bold text-white text-center lg:w-3/4 mx-auto">
         Jelajahi Dunia Imajinasi Anda Bergabunglah sebagai Penulis Novel dan
         Dapatkan Akses ke Berbagai Benefit yang Menginspirasi!"
       </h2>
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-between mt-16 items-center">
         <div className="text-white">
-          <h3 className="text-[40px] text-center">
+          <h3 className="text-[26px] lg:text-[40px] text-center">
             Penulis Favorit
             <br />
             Gooddreamer, Minggu ini!

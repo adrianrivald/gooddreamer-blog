@@ -31,7 +31,7 @@ export const Announcement = () => {
 
   return (
     <Slider className="mt-16" {...settings}>
-      <div className="py-8 px-20 bg-purple-primary text-white min-h-[370px]">
+      <div className="py-8 px-8 lg:px-20 bg-purple-primary text-white min-h-[370px]">
         <h3 className="text-[40px]">Pengumuman</h3>
         <ul className="list-disc mt-8 ml-4">
           {announcements?.slice(0, 6).map((announcement: any) => (
@@ -44,7 +44,7 @@ export const Announcement = () => {
           ))}
         </ul>
       </div>
-      <div className="py-8 px-20 bg-yellow-primary text-white min-h-[370px]">
+      <div className="py-8 px-8 lg:px-20 bg-yellow-primary text-white min-h-[370px]">
         <h3 className="text-[40px]">Promo Section</h3>
 
         <ul className="list-disc mt-8 ml-4">

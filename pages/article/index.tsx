@@ -19,23 +19,23 @@ export default function ArticlePage() {
       </Head>
 
       <main className="">
-        <div className="py-8 px-20 mt-14">
+        <div className="py-8 px-8 lg:px-20 mt-14">
           <div className="flex justify-between">
             <h1 className="text-[40px] text-purple-primary font-bold">
               Gooddreamer Artikel
             </h1>
           </div>
-          <div className="flex gap-12 mt-8">
-            <div className="w-3/4">
+          <div className="flex flex-col lg:flex-row gap-12 mt-8">
+            <div className="w-full lg:w-3/4">
               <Card
-                coverHeight="h-[400px]"
+                coverHeight="h-[210px] lg:h-[400px]"
                 image={articles[0]?.thumbnail}
                 title={articles[0]?.title}
                 content={articles[0]?.content_preview}
                 url={`/article/${articles[0]?.uri}`}
               />
             </div>
-            <div className="w-1/4">
+            <div className="w-full lg:w-1/4">
               <Card
                 withDetailButton
                 image={articles[1]?.thumbnail}
@@ -45,7 +45,7 @@ export default function ArticlePage() {
               />
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-12 mt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-12">
             <Card
               withDetailButton
               image={articles[2]?.thumbnail}
@@ -69,9 +69,10 @@ export default function ArticlePage() {
             />
           </div>
 
-          <div className="flex gap-12 mt-8">
-            <div className="w-3/4">
+          <div className="flex flex-col lg:flex-row gap-12 mt-8">
+            <div className="w-full lg:w-3/4">
               <Card
+                coverHeight="h-[210px] lg:h-[400px]"
                 withDetailButton
                 image={articles[5]?.thumbnail}
                 title={articles[5]?.title}
@@ -79,7 +80,7 @@ export default function ArticlePage() {
                 url={`/article/${articles[5]?.uri}`}
               />
             </div>
-            <div className="w-1/4">
+            <div className="w-full lg:w-1/4">
               <Card
                 withDetailButton
                 image={articles[6]?.thumbnail}
@@ -89,7 +90,7 @@ export default function ArticlePage() {
               />
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-12 mt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-12">
             <Card
               withDetailButton
               image={articles[7]?.thumbnail}
@@ -113,6 +114,26 @@ export default function ArticlePage() {
             />
           </div>
         </div>
+
+        {/* <div className="py-8 px-20 mt-14">
+          <div className="flex justify-between">
+            <h1 className="text-[40px] text-purple-primary font-bold">
+              Gooddreamer Artikel
+            </h1>
+          </div>
+          <div className="grid grid-cols-3 gap-12 mt-8">
+            {articles &&
+              articles?.map((article) => (
+                <Card
+                  coverHeight="h-[400px]"
+                  image={article?.thumbnail}
+                  title={article?.title}
+                  content={article?.content_preview}
+                  url={`/article/${article?.uri}`}
+                />
+              ))}
+          </div>
+        </div> */}
       </main>
     </div>
   );

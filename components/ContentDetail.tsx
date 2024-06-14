@@ -32,7 +32,7 @@ export function ContentDetail(props: ContentDetailProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="py-8 px-20">
+      <main className="py-8 px-8 lg:px-20">
         <Image
           src={props?.data?.image}
           width={1140}
@@ -40,7 +40,7 @@ export function ContentDetail(props: ContentDetailProps) {
           alt="content-image"
           className="rounded-[10px] w-full h-[285px] object-cover"
         />
-        <h1 className="text-[40px] text-purple-primary font-bold mt-14">
+        <h1 className="text-[32px] lg:text-[40px] text-purple-primary font-bold mt-14">
           {props?.data?.title}
         </h1>
         {props?.data?.content &&

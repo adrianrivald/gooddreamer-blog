@@ -3,7 +3,7 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <div className="bg-black-primary py-14 px-20 mt-14 flex justify-between text-white">
+    <div className="bg-black-primary py-14 px-8 lg:px-20 mt-14 flex flex-col lg:flex-row gap-12 justify-between text-white">
       <div className="w-3/4">
         <Image
           src="/assets/images/gooddreamer-logo-white.svg"

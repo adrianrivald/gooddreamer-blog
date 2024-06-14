@@ -18,7 +18,7 @@ export const Faq = () => {
   };
 
   return (
-    <div className="bg-purple-primary py-14 px-20 mt-14">
+    <div className="bg-purple-primary py-14 px-8 lg:px-20 mt-14">
       <div className="flex justify-between">
         <h1 className="text-[40px] text-white font-bold">FAQ</h1>
         <button

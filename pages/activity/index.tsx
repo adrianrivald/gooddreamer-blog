@@ -18,14 +18,14 @@ export default function ActivityPage() {
 
       <main className="">
         <Hero />
-        <div className=" py-8 px-20 mt-14">
+        <div className=" py-8 px-8 lg:px-20 mt-14">
           <div className="flex justify-between">
-            <h1 className="text-[40px] text-purple-primary font-bold">
+            <h1 className="text-[32px] lg:text-[40px] text-purple-primary font-bold">
               Event dan Komunitas GDSquad
             </h1>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-12 py-4 px-20 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 py-4 px-8 lg:px-20 mt-4">
           {activities &&
             activities?.map((activity: any) => (
               <Card

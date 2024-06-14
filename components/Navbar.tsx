@@ -9,7 +9,7 @@ export const Navbar = () => {
     router.push("/");
   };
   return (
-    <div className="max-w-[120rem] h-[60px] mx-auto flex justify-between items-center py-8 px-20 w-full fixed z-50 bg-white">
+    <div className="max-w-[120rem] h-[60px] mx-auto flex justify-between items-center py-8 px-8 lg:px-20 w-full fixed z-50 bg-white">
       <Image
         src="/assets/images/gooddreamer-logo.svg"
         width={200}
@@ -18,7 +18,7 @@ export const Navbar = () => {
         onClick={onClickLogo}
         className="cursor-pointer"
       />
-      <ol className="flex gap-12 justify-between text-purple-primary">
+      <ol className="hidden lg:flex gap-12 justify-between text-purple-primary">
         <li className="cursor-pointer">
           <Link href="/announcement">Pengumuman</Link>
         </li>

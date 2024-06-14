@@ -35,10 +35,14 @@ export const Card = (props: CardProps) => {
         width={385}
         height={239}
         alt="event_image"
-        className={`w-full ${coverHeight} object-cover rounded-t-lg`}
+        onClick={onToDetail}
+        className={`w-full ${coverHeight} object-cover rounded-t-lg cursor-pointer`}
       />
       <div className="w-full">
-        <h2 className="text-[30px] text-purple-primary font-bold mt-0 line-clamp-2 max-h-[80px]">
+        <h2
+          onClick={onToDetail}
+          className="cursor-pointer text-[24px] lg:text-[30px] text-purple-primary font-bold mt-0 line-clamp-2 max-h-[80px]"
+        >
           {title}
         </h2>
         <p className="text-grey-primary text-[18px] mt-2 line-clamp-2">

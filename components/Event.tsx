@@ -20,10 +20,10 @@ export const Event = () => {
     });
   };
   return (
-    <div className="py-8 px-20 mt-14">
+    <div className="py-8 px-8 lg:px-20 mt-14">
       {/* heading */}
-      <div className="flex justify-between">
-        <h1 className="text-[40px] text-purple-primary font-bold">
+      <div className="flex flex-col lg:flex-row justify-between">
+        <h1 className="text-[32px] lg:text-[40px] text-purple-primary font-bold">
           Event dan Komunitas GDSquad
         </h1>
         <button
@@ -44,16 +44,20 @@ export const Event = () => {
       <div className="flex flex-col gap-8 mt-12">
         {activities?.slice(0, 3).map((activity: any) => {
           return (
-            <div className="relative flex gap-6 mt-4">
+            <div className="relative flex flex-col lg:flex-row gap-6 mt-4">
               <Image
+                onClick={() => onClickActivityItem(activity?.uri)}
                 src={activity?.thumbnail}
                 width={385}
                 height={239}
                 alt="event_image"
-                className="w-[385px] h-[239px] object-cover rounded-[10px] flex-none"
+                className="cursor-pointer w-full lg:w-[385px] h-[239px] object-cover rounded-[10px] flex-none"
               />
               <div>
-                <h2 className="text-[30px] text-purple-primary font-bold mt-0">
+                <h2
+                  onClick={() => onClickActivityItem(activity?.uri)}
+                  className="cursor-pointer text-[24px] lg:text-[30px] text-purple-primary font-bold mt-0"
+                >
                   {activity?.title}
                 </h2>
                 <p className="text-grey-primary text-[18px] mt-2 lg:w-3/4 line-clamp-4">
