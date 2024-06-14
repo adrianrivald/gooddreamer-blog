@@ -7,15 +7,23 @@ interface CardProps {
   title: string;
   content: string;
   withDetailButton?: boolean;
-  url: string;
+  url?: string;
+  coverHeight?: string;
 }
 
 export const Card = (props: CardProps) => {
-  const { image, title, content, withDetailButton = false, url } = props;
+  const {
+    image,
+    title,
+    content,
+    withDetailButton = false,
+    url,
+    coverHeight = "h-[210px]",
+  } = props;
   const router = useRouter();
 
   const onToDetail = () => {
-    router.push(url);
+    if (url) router.push(url);
   };
 
   return (
@@ -25,7 +33,7 @@ export const Card = (props: CardProps) => {
         width={385}
         height={239}
         alt="event_image"
-        className="w-full h-[210px] object-fit rounded-t-lg"
+        className={`w-full ${coverHeight} object-fit rounded-t-lg`}
       />
       <div className="w-full">
         <h2 className="text-[30px] text-purple-primary font-bold mt-0 line-clamp-2 max-h-[80px]">

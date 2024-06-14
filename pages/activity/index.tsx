@@ -27,7 +27,7 @@ export default function ActivityPage() {
         </div>
         <div className="grid grid-cols-3 gap-12 py-4 px-20 mt-4">
           {activities &&
-            activities?.map((activity) => (
+            activities?.map((activity: any) => (
               <Card
                 withDetailButton
                 image={activity?.thumbnail}
