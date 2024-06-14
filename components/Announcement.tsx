@@ -25,7 +25,7 @@ export const Announcement = () => {
       <div className="py-8 px-20 bg-purple-primary text-white min-h-[370px]">
         <h3 className="text-[40px]">Pengumuman</h3>
         <ul className="list-disc mt-8 ml-4">
-          {announcements?.map((announcement) => (
+          {announcements?.map((announcement: any) => (
             <li className="mt-2 text-base">{announcement?.title}</li>
           ))}
         </ul>
@@ -34,7 +34,7 @@ export const Announcement = () => {
         <h3 className="text-[40px]">Promo Section</h3>
 
         <ul className="list-disc mt-8 ml-4">
-          {promos?.map((promo) => (
+          {promos?.map((promo: any) => (
             <li className="mt-2 text-base">{promo?.title}</li>
           ))}
         </ul>

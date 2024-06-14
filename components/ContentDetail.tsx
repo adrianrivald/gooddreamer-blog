@@ -53,10 +53,7 @@ export function ContentDetail(props: ContentDetailProps) {
               ?.replaceAll("<h1", "<br/><h1")
               ?.replaceAll("<h2", "<br/><h2")
               ?.replaceAll("<h3", "<br/><h3")
-              ?.replaceAll(
-                "<ul",
-                `<ul className="list-inside" style="list-style-type: disc;" `
-              )
+              ?.replaceAll("<ul", `<ul className="list-inside list-disc"`)
               ?.replaceAll("<li><br/><p>", "<br/><li>")
               ?.replaceAll("</p></li>", "</li>")
             // )
