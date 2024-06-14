@@ -24,7 +24,9 @@ export const Author = () => {
             <div className="relative  mt-12">
               <Image
                 src={
-                  favoriteAuthorsData && favoriteAuthorsData[0]?.author?.image
+                  (favoriteAuthorsData &&
+                    favoriteAuthorsData[0]?.author?.photo_profile) ??
+                  "/assets/images/fallback-ava.webp"
                 }
                 width={214}
                 height={214}
@@ -73,7 +75,10 @@ export const Author = () => {
                 <div className="flex gap-2 items-center border border-grey-secondary rounded-[10px] p-4">
                   <div className="relative">
                     <Image
-                      src={data?.author?.image}
+                      src={
+                        data?.author?.photo_profile ??
+                        "/assets/images/fallback-ava.webp"
+                      }
                       width={214}
                       height={214}
                       alt="author"

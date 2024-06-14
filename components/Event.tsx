@@ -42,7 +42,7 @@ export const Event = () => {
 
       {/* content */}
       <div className="flex flex-col gap-8 mt-12">
-        {activities?.map((activity: any) => {
+        {activities?.slice(0, 3).map((activity: any) => {
           return (
             <div className="relative flex gap-6 mt-4">
               <Image
@@ -56,7 +56,7 @@ export const Event = () => {
                 <h2 className="text-[30px] text-purple-primary font-bold mt-0">
                   {activity?.title}
                 </h2>
-                <p className="text-grey-primary text-[18px] mt-2 lg:w-3/4">
+                <p className="text-grey-primary text-[18px] mt-2 lg:w-3/4 line-clamp-4">
                   {activity?.content_preview}
                 </p>
                 <button

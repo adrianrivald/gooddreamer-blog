@@ -1,8 +1,21 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React from "react";
+import { useArticleList } from "../../services/content/use-content-list";
 import { Card } from "../../ui/Card";
 
 export default function ArticlePage() {
+  const router = useRouter();
+  const { data } = useArticleList();
+  const articles = data?.data;
+  const onToArticle = () => {
+    router.push("/article");
+  };
+  const onClickArticleItem = (uri: string) => {
+    router.push({
+      pathname: `/article/${uri}`,
+    });
+  };
   return (
     <div>
       <Head>
@@ -22,77 +35,87 @@ export default function ArticlePage() {
             <div className="w-3/4">
               <Card
                 coverHeight="h-[400px]"
-                image="/assets/images/dummyevent.png"
-                title="test"
-                content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+                image={articles[0]?.thumbnail}
+                title={articles[0]?.title}
+                content={articles[0]?.content_preview}
+                url={`/article/${articles[0]?.uri}`}
               />
             </div>
             <div className="w-1/4">
               <Card
                 withDetailButton
-                image="/assets/images/dummyevent.png"
-                title="test"
-                content="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                image={articles[1]?.thumbnail}
+                title={articles[1]?.title}
+                content={articles[1]?.content_preview}
+                url={`/article/${articles[1]?.uri}`}
               />
             </div>
           </div>
           <div className="grid grid-cols-3 gap-12 mt-12">
             <Card
               withDetailButton
-              image="/assets/images/dummyevent.png"
-              title="test"
-              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+              image={articles[2]?.thumbnail}
+              title={articles[2]?.title}
+              content={articles[2]?.content_preview}
+              url={`/article/${articles[2]?.uri}`}
             />
             <Card
               withDetailButton
-              image="/assets/images/dummyevent.png"
-              title="test"
-              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+              image={articles[3]?.thumbnail}
+              title={articles[3]?.title}
+              content={articles[3]?.content_preview}
+              url={`/article/${articles[3]?.uri}`}
             />
             <Card
               withDetailButton
-              image="/assets/images/dummyevent.png"
-              title="test"
-              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+              image={articles[4]?.thumbnail}
+              title={articles[4]?.title}
+              content={articles[4]?.content_preview}
+              url={`/article/${articles[4]?.uri}`}
             />
           </div>
 
           <div className="flex gap-12 mt-8">
             <div className="w-3/4">
               <Card
-                coverHeight="h-[400px]"
-                image="/assets/images/dummyevent.png"
-                title="test"
-                content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+                withDetailButton
+                image={articles[5]?.thumbnail}
+                title={articles[5]?.title}
+                content={articles[5]?.content_preview}
+                url={`/article/${articles[5]?.uri}`}
               />
             </div>
             <div className="w-1/4">
               <Card
                 withDetailButton
-                image="/assets/images/dummyevent.png"
-                title="test"
-                content="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                image={articles[6]?.thumbnail}
+                title={articles[6]?.title}
+                content={articles[6]?.content_preview}
+                url={`/article/${articles[6]?.uri}`}
               />
             </div>
           </div>
           <div className="grid grid-cols-3 gap-12 mt-12">
             <Card
               withDetailButton
-              image="/assets/images/dummyevent.png"
-              title="test"
-              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+              image={articles[7]?.thumbnail}
+              title={articles[7]?.title}
+              content={articles[7]?.content_preview}
+              url={`/article/${articles[7]?.uri}`}
             />
             <Card
               withDetailButton
-              image="/assets/images/dummyevent.png"
-              title="test"
-              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+              image={articles[8]?.thumbnail}
+              title={articles[8]?.title}
+              content={articles[8]?.content_preview}
+              url={`/article/${articles[8]?.uri}`}
             />
             <Card
               withDetailButton
-              image="/assets/images/dummyevent.png"
-              title="test"
-              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+              image={articles[9]?.thumbnail}
+              title={articles[9]?.title}
+              content={articles[9]?.content_preview}
+              url={`/article/${articles[9]?.uri}`}
             />
           </div>
         </div>

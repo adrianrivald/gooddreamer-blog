@@ -12,6 +12,10 @@ module.exports = {
         protocol: "https",
         hostname: "storage-dev.gooddreamer.id",
       },
+      {
+        protocol: "https",
+        hostname: "api.gooddreamer.id",
+      },
     ],
   },
 };

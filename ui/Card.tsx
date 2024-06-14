@@ -26,6 +26,8 @@ export const Card = (props: CardProps) => {
     if (url) router.push(url);
   };
 
+  if (!content) return null;
+
   return (
     <div className="relative flex flex-col gap-2">
       <Image
@@ -33,13 +35,13 @@ export const Card = (props: CardProps) => {
         width={385}
         height={239}
         alt="event_image"
-        className={`w-full ${coverHeight} object-fit rounded-t-lg`}
+        className={`w-full ${coverHeight} object-cover rounded-t-lg`}
       />
       <div className="w-full">
         <h2 className="text-[30px] text-purple-primary font-bold mt-0 line-clamp-2 max-h-[80px]">
           {title}
         </h2>
-        <p className="text-grey-primary text-[18px] mt-2 line-clamp-3">
+        <p className="text-grey-primary text-[18px] mt-2 line-clamp-2">
           {content}
         </p>
       </div>
