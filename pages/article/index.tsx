@@ -5,17 +5,8 @@ import { useArticleList } from "../../services/content/use-content-list";
 import { Card } from "../../ui/Card";
 
 export default function ArticlePage() {
-  const router = useRouter();
   const { data } = useArticleList();
   const articles = data?.data;
-  const onToArticle = () => {
-    router.push("/article");
-  };
-  const onClickArticleItem = (uri: string) => {
-    router.push({
-      pathname: `/article/${uri}`,
-    });
-  };
   return (
     <div>
       <Head>
