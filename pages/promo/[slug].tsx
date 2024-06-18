@@ -4,7 +4,7 @@ import { ContentDetail } from "../../components/ContentDetail";
 import { ContentDetailSkeleton } from "../../components/ContentDetailSkeleton";
 import { useContentById } from "../../services/content/use-content-detail";
 
-export default function ArticleDetail() {
+export default function PromoDetail() {
   const router = useRouter();
   const { slug } = router?.query;
   const { data, isFetching, isLoading } = useContentById(slug);
@@ -13,5 +13,6 @@ export default function ArticleDetail() {
   if (isFetching || isLoading) {
     return <ContentDetailSkeleton />;
   }
+
   return <ContentDetail data={contentData} title={contentData?.title} />;
 }
