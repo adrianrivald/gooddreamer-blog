@@ -1,11 +1,16 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
+import { useFaqHomeList } from "../services/faq/use-faq-list";
 
 export const Faq = () => {
   const router = useRouter();
+  const { data, isLoading } = useFaqHomeList();
   const [toggleFaq1, setToggleFaq1] = React.useState(false);
   const [toggleFaq2, setToggleFaq2] = React.useState(false);
+  const faqData = data?.data;
+
+  console.log(faqData, "faqdata");
 
   const onToggleFaq1 = () => {
     setToggleFaq1((prev) => {
@@ -48,7 +53,7 @@ export const Faq = () => {
             onClick={onToggleFaq1}
             className="cursor-pointer flex justify-between text-[20px] font-bold"
           >
-            <span>Apakah saya bisa mengubah nama akun saya?</span>
+            <span>{faqData[0]?.question}</span>
             <Image
               src="/assets/icons/chevron-up.svg"
               width={14}
@@ -64,12 +69,7 @@ export const Faq = () => {
               toggleFaq1 ? "h-[100px]" : "h-[0px]"
             } transition-all`}
           >
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
-            </p>
+            <p>{faqData[0]?.answer}</p>
           </div>
         </div>
         <div className="mt-8 text-white border-b border-grey-fourth pb-4">
@@ -77,7 +77,7 @@ export const Faq = () => {
             onClick={onToggleFaq2}
             className="cursor-pointer flex justify-between text-[20px] font-bold"
           >
-            <span>Apa yang harus dilakukan jika lupa password akun?</span>
+            <span>{faqData[1]?.question}</span>
             <Image
               src="/assets/icons/chevron-up.svg"
               width={14}
@@ -93,12 +93,7 @@ export const Faq = () => {
               toggleFaq2 ? "h-[100px]" : "h-[0px]"
             } transition-all`}
           >
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
-            </p>
+            <p>{faqData[1]?.answer}</p>
           </div>
         </div>
       </div>
