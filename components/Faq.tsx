@@ -10,7 +10,7 @@ export const Faq = () => {
   const [toggleFaq2, setToggleFaq2] = React.useState(false);
   const faqData = data?.data;
 
-  console.log(faqData, "faqdata");
+  console.log(faqData && faqData, "faqData && faqdata");
 
   const onToggleFaq1 = () => {
     setToggleFaq1((prev) => {
@@ -53,7 +53,7 @@ export const Faq = () => {
             onClick={onToggleFaq1}
             className="cursor-pointer flex justify-between text-[20px] font-bold"
           >
-            <span>{faqData[0]?.question}</span>
+            <span>{faqData && faqData[0]?.question}</span>
             <Image
               src="/assets/icons/chevron-up.svg"
               width={14}
@@ -69,7 +69,7 @@ export const Faq = () => {
               toggleFaq1 ? "h-[100px]" : "h-[0px]"
             } transition-all`}
           >
-            <p>{faqData[0]?.answer}</p>
+            <p>{faqData && faqData[0]?.answer}</p>
           </div>
         </div>
         <div className="mt-8 text-white border-b border-grey-fourth pb-4">
@@ -77,7 +77,7 @@ export const Faq = () => {
             onClick={onToggleFaq2}
             className="cursor-pointer flex justify-between text-[20px] font-bold"
           >
-            <span>{faqData[1]?.question}</span>
+            <span>{faqData && faqData[1]?.question}</span>
             <Image
               src="/assets/icons/chevron-up.svg"
               width={14}
@@ -93,7 +93,7 @@ export const Faq = () => {
               toggleFaq2 ? "h-[100px]" : "h-[0px]"
             } transition-all`}
           >
-            <p>{faqData[1]?.answer}</p>
+            <p>{faqData && faqData[1]?.answer}</p>
           </div>
         </div>
       </div>
