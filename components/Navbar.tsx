@@ -26,7 +26,7 @@ export const Navbar = () => {
           <Link href="/activity">Aktivitas</Link>
         </li>
         <li className="cursor-pointer">
-          <Link href="/author">Penulis</Link>
+          <Link href="https://gooddreamer.id/author">Penulis</Link>
         </li>
         <li className="cursor-pointer">
           <Link href="/article">Artikel</Link>

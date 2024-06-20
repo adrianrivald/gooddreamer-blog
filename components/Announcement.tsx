@@ -30,7 +30,7 @@ export const Announcement = () => {
   };
 
   return (
-    <Slider className="mt-16" {...settings}>
+    <Slider className="mt-16 overflow-hidden" {...settings}>
       <div className="py-8 px-8 lg:px-20 bg-purple-primary text-white min-h-[370px]">
         <h3 className="text-[40px]">Pengumuman</h3>
         <ul className="list-disc mt-8 ml-4">
