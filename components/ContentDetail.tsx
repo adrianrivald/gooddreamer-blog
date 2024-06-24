@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { Content } from "../services/content/types";
 import parse from "html-react-parser";
+import DOMPurify from "dompurify";
 
 interface ContentDetailProps {
   data: Content;
@@ -30,18 +31,21 @@ export function ContentDetail(props: ContentDetailProps) {
         </h1>
         {props?.data?.content &&
           parse(
-            // DOMPurify.sanitize(
-            props?.data?.content
-              ?.replaceAll("<p", "<br/><p")
-              ?.replaceAll("<img", "<br/><img")
-              ?.replaceAll("<hr", "<br/><hr")
-              ?.replaceAll("<h1", "<br/><h1")
-              ?.replaceAll("<h2", "<br/><h2")
-              ?.replaceAll("<h3", "<br/><h3")
-              ?.replaceAll("<ul", `<ul className="list-inside list-disc"`)
-              ?.replaceAll("<li><br/><p>", "<br/><li>")
-              ?.replaceAll("</p></li>", "</li>")
-            // )
+            DOMPurify.sanitize(
+              props?.data?.content
+                ?.replaceAll("<p", "<br/><p")
+                ?.replaceAll("<img", "<br/><img")
+                ?.replaceAll("<hr", "<br/><hr")
+                ?.replaceAll("<h1", "<br/><h1")
+                ?.replaceAll("<h2", "<br/><h2")
+                ?.replaceAll("<h3", "<br/><h3")
+                ?.replaceAll(
+                  "<ul",
+                  `<ul style="list-style-type:disc;list-style-position:inside"`
+                )
+                ?.replaceAll("<li><br/><p>", "<br/><li>")
+                ?.replaceAll("</p></li>", "</li>")
+            )
           )}
       </main>
     </div>

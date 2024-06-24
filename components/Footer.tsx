@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export const Footer = () => {
@@ -15,17 +16,29 @@ export const Footer = () => {
           <div>
             <h4 className="text-[18px] font-bold">Informasi</h4>
             <ul className="text-[16px] flex flex-col gap-2 mt-4">
-              <li>Pengumuman</li>
-              <li>Aktivitas</li>
-              <li>Benefit Penulis {"&"} Jadi Penulis</li>
-              <li>Artikel</li>
-              <li>FAQ</li>
+              <li>
+                <Link href="/announcement">Pengumuman</Link>
+              </li>
+              <li>
+                <Link href="/activity">Aktivitas</Link>
+              </li>
+              {/* <li><Link href="/author">Benefit Penulis {"&"} Jadi Penulis</Link>Benefit Penulis {"&"} Jadi Penulis</li> */}
+              <li>
+                <Link href="/article">Artikel</Link>
+              </li>
+              <li>
+                <Link href="/faq">FAQ</Link>
+              </li>
             </ul>
           </div>
           <div>
             <h4 className="text-[18px] font-bold">Ketentuan</h4>
             <ul className="text-[16px] flex flex-col gap-2 mt-4">
-              <li>Syarat {"&"} Ketentuan</li>
+              <li>
+                <Link href="https://gooddreamer.id/privacy-terms">
+                  Syarat {"&"} Ketentuan
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -54,14 +67,30 @@ export const Footer = () => {
         <div className="mt-12">
           <h4 className="text-[18px] font-bold">Hubungi Kami</h4>
           <div className="flex mt-3 gap-3">
-            <Image src="/assets/icons/ig.svg" width={21} height={21} alt="ig" />
-            <Image src="/assets/icons/fb.svg" width={21} height={21} alt="fb" />
-            <Image
-              src="/assets/icons/linkedin.svg"
-              width={21}
-              height={21}
-              alt="linkedin"
-            />
+            <Link href="https://www.instagram.com/gooddreamerindonesia">
+              <Image
+                src="/assets/icons/ig.svg"
+                width={21}
+                height={21}
+                alt="ig"
+              />
+            </Link>
+            <Link href="https://www.facebook.com/GoodDreamerOfficial">
+              <Image
+                src="/assets/icons/fb.svg"
+                width={21}
+                height={21}
+                alt="fb"
+              />
+            </Link>
+            <Link href="https://www.linkedin.com/company/gooddreamer-indonesia/">
+              <Image
+                src="/assets/icons/linkedin.svg"
+                width={21}
+                height={21}
+                alt="linkedin"
+              />
+            </Link>
           </div>
           <h5 className="text-[16px] mt-3">Copyright @Gooddreamer</h5>
         </div>
