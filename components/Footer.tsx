@@ -67,7 +67,10 @@ export const Footer = () => {
         <div className="mt-12">
           <h4 className="text-[18px] font-bold">Hubungi Kami</h4>
           <div className="flex mt-3 gap-3">
-            <Link href="https://www.instagram.com/gooddreamerindonesia">
+            <Link
+              target="_blank"
+              href="https://www.instagram.com/gooddreamerindonesia"
+            >
               <Image
                 src="/assets/icons/ig.svg"
                 width={21}
@@ -75,7 +78,10 @@ export const Footer = () => {
                 alt="ig"
               />
             </Link>
-            <Link href="https://www.facebook.com/GoodDreamerOfficial">
+            <Link
+              target="_blank"
+              href="https://www.facebook.com/GoodDreamerOfficial"
+            >
               <Image
                 src="/assets/icons/fb.svg"
                 width={21}
@@ -83,7 +89,10 @@ export const Footer = () => {
                 alt="fb"
               />
             </Link>
-            <Link href="https://www.linkedin.com/company/gooddreamer-indonesia/">
+            <Link
+              target="_blank"
+              href="https://www.linkedin.com/company/gooddreamer-indonesia/"
+            >
               <Image
                 src="/assets/icons/linkedin.svg"
                 width={21}

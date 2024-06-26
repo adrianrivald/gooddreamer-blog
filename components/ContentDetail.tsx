@@ -43,8 +43,24 @@ export function ContentDetail(props: ContentDetailProps) {
                   "<ul",
                   `<ul style="list-style-type:disc;list-style-position:inside"`
                 )
+                ?.replaceAll(
+                  "<ol",
+                  `<ol style="list-style-type:decimal;list-style-position:inside"`
+                )
                 ?.replaceAll("<li><br/><p>", "<br/><li>")
                 ?.replaceAll("</p></li>", "</li>")
+                ?.replaceAll(
+                  "<h1",
+                  `<h1 style="font-size:3rem;font-weight:bold" `
+                )
+                ?.replaceAll(
+                  "<h2",
+                  `<h2 style="font-size:1.875rem;font-weight:bold" `
+                )
+                ?.replaceAll(
+                  "<h3",
+                  `<h3 style="font-size:1.5rem;font-weight:bold" `
+                )
             )
           )}
       </main>
