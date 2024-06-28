@@ -94,13 +94,13 @@ export default function FAQPage() {
       </Head>
 
       <main className="">
-        <div className=" py-8 px-20 mt-4">
+        <div className="py-3 px-8 lg:px-20 mt-14">
           <div className="flex justify-between">
             <h1 className="text-[40px] text-purple-primary font-bold">FAQ</h1>
           </div>
         </div>
-        <div className="flex py-2 px-20 mt-4">
-          <div className="w-1/2">
+        <div className="flex py-3 px-8 lg:px-20 mt-4">
+          <div className="w-full lg:w-1/2">
             <div className="relative">
               <input
                 type="text"
@@ -118,8 +118,8 @@ export default function FAQPage() {
             </div>
           </div>
         </div>
-        <div className="flex pt-2 pb-8 gap-8 px-20 mt-4">
-          <div className="bg-purple-primary p-4 text-white rounded-[5px] text-[20px] w-1/2 h-screen">
+        <div className="flex flex-col lg:flex-row pt-2 pb-8 gap-8 px-8 lg:px-20 mt-4">
+          <div className="bg-purple-primary p-4 text-white rounded-[5px] text-[20px] w-full lg:w-1/2 h-[300px] overflow-auto lg:h-screen">
             <ul className="flex flex-col gap-4 list-disc list-inside">
               {faqQuestion
                 ?.filter((question) =>
@@ -140,7 +140,7 @@ export default function FAQPage() {
                 ))}
             </ul>
           </div>
-          <div className="w-1/2 p-4 transition-all">
+          <div className="w-full lg:w-1/2 p-4 transition-all">
             <h1 className="text-[30px] font-bold leading-[40px]">
               {faqDetail?.question}
             </h1>
