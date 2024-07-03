@@ -2,11 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  basePath: "/blog",
 };
 
 module.exports = {
   ...nextConfig,
+  // distDir: "build",
+  // output: "export",
   images: {
     remotePatterns: [
       {
