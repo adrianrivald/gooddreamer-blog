@@ -41,11 +41,11 @@ export const Card = (props: CardProps) => {
       <div className="w-full">
         <h2
           onClick={onToDetail}
-          className="h-[50px] cursor-pointer text-[24px] lg:text-[30px] text-purple-primary font-bold mt-0 line-clamp-1 max-h-[80px]"
+          className="lg:h-[50px] cursor-pointer text-[24px] lg:text-[30px] text-purple-primary font-bold mt-0 line-clamp-1 max-h-[80px]"
         >
           {title}
         </h2>
-        <p className="h-[60px] text-grey-primary text-[18px] mt-2 line-clamp-2">
+        <p className="lg:h-[60px] text-grey-primary text-[18px] mt-2 line-clamp-2">
           {content}
         </p>
       </div>
