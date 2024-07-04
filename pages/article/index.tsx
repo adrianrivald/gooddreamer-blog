@@ -13,24 +13,6 @@ export default function ArticlePage() {
   });
   const articles = data?.data;
 
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [page]);
-
-  const onClickItem = (label: string) => {
-    const isPrev = label?.includes("&laquo; Previous");
-    const isNext = label?.includes("Next &raquo;");
-    if (isNext) {
-      setPage((prev) => prev + 1);
-    }
-    if (isPrev) {
-      setPage((prev) => prev - 1);
-    }
-    if (!isPrev && !isNext) {
-      setPage(parseInt(label));
-    }
-  };
-
   if (!articles?.length) return null;
 
   return (
@@ -136,10 +118,7 @@ export default function ArticlePage() {
               url={`/article/${articles[9]?.uri}`}
             />
           </div>
-          <Pagination
-            onClickItem={onClickItem}
-            paginations={data?.meta?.links}
-          />
+          <Pagination page={page} setPage={setPage} meta={data?.meta} />
         </div>
 
         {/* <div className="py-8 px-20 mt-14">

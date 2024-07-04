@@ -3,9 +3,12 @@ import Image from "next/image";
 import { Hero } from "../../components/Hero";
 import { useAnnouncementList } from "../../services/content/use-content-list";
 import { Card } from "../../ui/Card";
+import React from "react";
+import { Pagination } from "../../components/Pagination";
 
 export default function AnnouncementPage() {
-  const { data } = useAnnouncementList();
+  const [page, setPage] = React.useState(1);
+  const { data } = useAnnouncementList({ page: page.toString() });
   const announcements = data?.data;
 
   return (
@@ -37,6 +40,10 @@ export default function AnnouncementPage() {
               />
             ))}
         </div>
+        <div className="py-8 px-8 lg:px-20">
+          <Pagination page={page} setPage={setPage} meta={data?.meta} />
+        </div>
+        s
       </main>
     </div>
   );

@@ -1,14 +1,12 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Hero } from "../../components/Hero";
-import {
-  useAnnouncementList,
-  usePromoList,
-} from "../../services/content/use-content-list";
+import { usePromoList } from "../../services/content/use-content-list";
 import { Card } from "../../ui/Card";
+import React from "react";
 
 export default function PromoPage() {
-  const { data } = usePromoList();
+  const [page, setPage] = React.useState(1);
+  const { data } = usePromoList({ page: page.toString() });
   const promos = data?.data;
 
   return (
