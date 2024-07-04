@@ -5,7 +5,7 @@ export const fetchContentList = async (slug: string, page: string, isHome?: bool
   const res = await fetch(`${API_URL}/contents?` + new URLSearchParams({
     // category=${slug}&limit=${isHome ? "8" : "10"}
     category: slug,
-    limit: isHome ? "8" : "5",
+    limit: isHome ? "8" : "2",
     page: page
   }));
   if (!res.ok) {
