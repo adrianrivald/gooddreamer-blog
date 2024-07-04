@@ -33,7 +33,7 @@ export default function ArticlePage() {
           <div className="flex flex-col lg:flex-row gap-12 mt-8">
             <div className="w-full lg:w-3/4">
               <Card
-                coverHeight="h-[210px] lg:h-[400px]"
+                coverHeight="h-[210px] lg:h-[280px]"
                 image={articles[0]?.thumbnail}
                 title={articles[0]?.title}
                 content={articles[0]?.content_preview}
@@ -77,8 +77,7 @@ export default function ArticlePage() {
           <div className="flex flex-col lg:flex-row gap-12 mt-8">
             <div className="w-full lg:w-3/4">
               <Card
-                coverHeight="h-[210px] lg:h-[400px]"
-                withDetailButton
+                coverHeight="h-[210px] lg:h-[280px]"
                 image={articles[5]?.thumbnail}
                 title={articles[5]?.title}
                 content={articles[5]?.content_preview}
