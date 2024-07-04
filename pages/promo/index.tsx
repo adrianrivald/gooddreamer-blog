@@ -6,7 +6,7 @@ import React from "react";
 
 export default function PromoPage() {
   const [page, setPage] = React.useState(1);
-  const { data } = usePromoList({ page: page.toString() });
+  const { data } = usePromoList(page.toString());
   const promos = data?.data;
 
   return (

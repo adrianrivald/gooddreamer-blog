@@ -8,7 +8,7 @@ import { Pagination } from "../../components/Pagination";
 
 export default function AnnouncementPage() {
   const [page, setPage] = React.useState(1);
-  const { data } = useAnnouncementList({ page: page.toString() });
+  const { data } = useAnnouncementList(page.toString());
   const announcements = data?.data;
 
   return (

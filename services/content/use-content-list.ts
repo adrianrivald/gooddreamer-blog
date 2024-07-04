@@ -1,4 +1,3 @@
-// api/github.api.ts
 import { useQuery } from '@tanstack/react-query';
 import { API_URL } from '../../constants/constants';
 
@@ -21,18 +20,18 @@ interface ContentProps {
   page?: string
 }
 
-export const useArticleList = ({isHome, page = '10'} : ContentProps) => {
+export const useArticleList = ({isHome, page = '1'} : ContentProps) => {
   return useQuery({queryKey: ["article-list", page], queryFn: () =>fetchContentList("article", page, isHome)});
 };
 
-export const useAnnouncementList = ({page = '10'}: ContentProps) => {
+export const useAnnouncementList = (page = "1") => {
   return useQuery({queryKey: ["announcement-list", page], queryFn: () =>fetchContentList("announcement", page)});
 };
 
-export const usePromoList = ({page = '10'}: ContentProps) => {
+export const usePromoList = (page = "1") => {
   return useQuery({queryKey: ["promo-list", page], queryFn: () =>fetchContentList("promo", page)});
 };
 
-export const useActivityList = ({page = '10'}: ContentProps) => {
+export const useActivityList = (page = "1") => {
   return useQuery({queryKey: ["activity-list", page], queryFn: () =>fetchContentList("activity", page)});
 };

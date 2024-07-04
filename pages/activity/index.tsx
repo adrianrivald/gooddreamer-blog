@@ -8,7 +8,7 @@ import { Pagination } from "../../components/Pagination";
 
 export default function ActivityPage() {
   const [page, setPage] = React.useState(1);
-  const { data } = useActivityList({ page: page.toString() });
+  const { data } = useActivityList(page.toString());
   const activities = data?.data;
 
   return (
