@@ -1,12 +1,16 @@
 import Head from "next/head";
-import { Hero } from "../../components/Hero";
-import { usePromoList } from "../../services/content/use-content-list";
-import { Card } from "../../ui/Card";
+import { Hero } from "../../../components/Hero";
+import { usePromoList } from "../../../services/content/use-content-list";
+import { Card } from "../../../ui/Card";
 import React from "react";
-import { Pagination } from "../../components/Pagination";
+import { Pagination } from "../../../components/Pagination";
+import { useRouter } from "next/router";
 
-export default function PromoPage() {
-  const { data } = usePromoList("1");
+export default function PromoPageIndex() {
+  const router = useRouter();
+  const { query } = router;
+  const page = parseInt((query?.pageIndex as string) ?? 1);
+  const { data } = usePromoList(page?.toString());
   const promos = data?.data;
 
   return (
@@ -37,7 +41,7 @@ export default function PromoPage() {
             ))}
         </div>
         <div className="py-8 px-8 lg:px-20">
-          <Pagination pageName="promo" page={1} meta={data?.meta} />
+          <Pagination pageName="promo" page={page} meta={data?.meta} />
         </div>
       </main>
     </div>

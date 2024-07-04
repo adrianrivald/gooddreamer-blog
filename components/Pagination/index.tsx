@@ -1,12 +1,15 @@
+import { useRouter } from "next/router";
 import React, { Dispatch, SetStateAction } from "react";
 
 interface PaginationProps {
   meta: any;
   page: number;
-  setPage: Dispatch<SetStateAction<number>>;
+  pageName: "article" | "activity" | "announcement" | "promo";
 }
 
-export function Pagination({ meta, page, setPage }: PaginationProps) {
+export function Pagination({ meta, page, pageName }: PaginationProps) {
+  const router = useRouter();
+  const { query } = router;
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, [page]);
@@ -15,13 +18,29 @@ export function Pagination({ meta, page, setPage }: PaginationProps) {
     const isPrev = label?.includes("&laquo; Previous");
     const isNext = label?.includes("Next &raquo;");
     if (isNext && meta?.current_page !== meta?.last_page) {
-      setPage((prev) => prev + 1);
+      if (query?.pageIndex) {
+        router.push({
+          pathname: `/${pageName}/page/${
+            parseInt(query?.pageIndex as string) + 1
+          }`,
+        });
+      } else {
+        router.push({
+          pathname: `/${pageName}/page/2`,
+        });
+      }
     }
     if (isPrev && meta?.current_page !== meta?.from) {
-      setPage((prev) => prev - 1);
+      router.push({
+        pathname: `/${pageName}/page/${
+          parseInt(query?.pageIndex as string) - 1
+        }`,
+      });
     }
     if (!isPrev && !isNext) {
-      setPage(parseInt(label));
+      router.push({
+        pathname: `/${pageName}/page/${parseInt(label).toString()}`,
+      });
     }
   };
   return (

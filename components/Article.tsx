@@ -21,7 +21,7 @@ export const Article = () => {
   return (
     <div className="py-8 px-8 lg:px-20 mt-14">
       {/* heading */}
-      <div className="flex flex-col lg:flex-row justify-between">
+      <div className="flex flex-col md:flex-row justify-between md:items-center">
         <h1 className="text-[32px] lg:text-[40px] text-purple-primary font-bold">
           Artikel
         </h1>

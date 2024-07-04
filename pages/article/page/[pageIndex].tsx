@@ -1,14 +1,17 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
-import { useArticleList } from "../../services/content/use-content-list";
-import { Card } from "../../ui/Card";
-import { Pagination } from "../../components/Pagination";
+import { useArticleList } from "../../../services/content/use-content-list";
+import { Card } from "../../../ui/Card";
+import { Pagination } from "../../../components/Pagination";
 
-export default function ArticlePage() {
+export default function ArticlePageIndex() {
+  const router = useRouter();
+  const { query } = router;
+  const page = parseInt((query?.pageIndex as string) ?? 1);
   const { data } = useArticleList({
     isHome: false,
-    page: "1",
+    page: page.toString(),
   });
   const articles = data?.data;
 
@@ -116,7 +119,7 @@ export default function ArticlePage() {
               url={`/article/${articles[9]?.uri}`}
             />
           </div>
-          <Pagination pageName="article" page={1} meta={data?.meta} />
+          <Pagination pageName="article" page={page} meta={data?.meta} />
         </div>
       </main>
     </div>

@@ -1,13 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Hero } from "../../components/Hero";
-import { useAnnouncementList } from "../../services/content/use-content-list";
-import { Card } from "../../ui/Card";
+import { Hero } from "../../../components/Hero";
+import { useAnnouncementList } from "../../../services/content/use-content-list";
+import { Card } from "../../../ui/Card";
 import React from "react";
-import { Pagination } from "../../components/Pagination";
+import { Pagination } from "../../../components/Pagination";
+import { useRouter } from "next/router";
 
-export default function AnnouncementPage() {
-  const { data } = useAnnouncementList("1");
+export default function AnnouncementPageIndex() {
+  const router = useRouter();
+  const { query } = router;
+  const page = parseInt((query?.pageIndex as string) ?? 1);
+  const { data } = useAnnouncementList(page.toString());
   const announcements = data?.data;
 
   return (
@@ -40,7 +44,7 @@ export default function AnnouncementPage() {
             ))}
         </div>
         <div className="py-8 px-8 lg:px-20">
-          <Pagination pageName="announcement" page={1} meta={data?.meta} />
+          <Pagination pageName="announcement" page={page} meta={data?.meta} />
         </div>
         s
       </main>
