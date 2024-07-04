@@ -64,16 +64,11 @@ export default function FAQPage() {
     }
   };
 
-  useEffect(() => {
-    console.log(faqDetail, "faqDetaile");
-  }, [faqDetail, selectedFaqIndex]);
-
   const [searchTerm, setSearchTerm] = useState("");
   const [submittedKeyword, setSubmittedKeyword] = useState("");
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      console.log(searchTerm);
       setSubmittedKeyword(searchTerm);
       // Send Axios request here
     }, 500);

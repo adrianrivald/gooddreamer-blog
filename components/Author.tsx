@@ -32,8 +32,6 @@ export const Author = () => {
     initiateURL();
   }, []);
 
-  console.log(ENV_URL);
-
   return (
     <div className="p-8 lg:p-20 mt-14 bg-black-primary">
       <h2 className="text-[24px] lg:text-[30px] font-bold text-white text-center lg:w-3/4 mx-auto">

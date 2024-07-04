@@ -10,8 +10,6 @@ export const Faq = () => {
   const [toggleFaq2, setToggleFaq2] = React.useState(false);
   const faqData = data?.data;
 
-  console.log(faqData && faqData, "faqData && faqdata");
-
   const onToggleFaq1 = () => {
     setToggleFaq1((prev) => {
       return !prev;

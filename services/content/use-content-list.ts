@@ -2,8 +2,13 @@
 import { useQuery } from '@tanstack/react-query';
 import { API_URL } from '../../constants/constants';
 
-export const fetchContentList = async (slug: string) => {
-  const res = await fetch(`${API_URL}/contents?category=${slug}`);
+export const fetchContentList = async (slug: string, page: string, isHome?: boolean, ) => {
+  const res = await fetch(`${API_URL}/contents?` + new URLSearchParams({
+    // category=${slug}&limit=${isHome ? "8" : "10"}
+    category: slug,
+    limit: isHome ? "8" : "10",
+    page: page
+  }));
   if (!res.ok) {
     throw new Error('Network response was not ok');
   }
@@ -11,18 +16,23 @@ export const fetchContentList = async (slug: string) => {
   return data;
 };
 
-export const useArticleList = () => {
-  return useQuery({queryKey: ["article-list"], queryFn: () =>fetchContentList("article")});
+interface ContentProps {
+  isHome? : boolean
+  page?: string
+}
+
+export const useArticleList = ({isHome, page = '10'} : ContentProps) => {
+  return useQuery({queryKey: ["article-list", page], queryFn: () =>fetchContentList("article", page, isHome)});
 };
 
-export const useAnnouncementList = () => {
-  return useQuery({queryKey: ["announcement-list"], queryFn: () =>fetchContentList("announcement")});
+export const useAnnouncementList = ({page = '10'}: ContentProps) => {
+  return useQuery({queryKey: ["announcement-list", page], queryFn: () =>fetchContentList("announcement", page)});
 };
 
-export const usePromoList = () => {
-  return useQuery({queryKey: ["promo-list"], queryFn: () =>fetchContentList("promo")});
+export const usePromoList = ({page = '10'}: ContentProps) => {
+  return useQuery({queryKey: ["promo-list", page], queryFn: () =>fetchContentList("promo", page)});
 };
 
-export const useActivityList = () => {
-  return useQuery({queryKey: ["activity-list"], queryFn: () =>fetchContentList("activity")});
+export const useActivityList = ({page = '10'}: ContentProps) => {
+  return useQuery({queryKey: ["activity-list", page], queryFn: () =>fetchContentList("activity", page)});
 };

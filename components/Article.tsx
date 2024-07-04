@@ -8,7 +8,7 @@ import { Card } from "../ui/Card";
 
 export const Article = () => {
   const router = useRouter();
-  const { data } = useArticleList();
+  const { data } = useArticleList({ isHome: true });
   const articles = data?.data;
   const onToArticle = () => {
     router.push("/article");

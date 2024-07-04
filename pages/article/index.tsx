@@ -3,10 +3,33 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useArticleList } from "../../services/content/use-content-list";
 import { Card } from "../../ui/Card";
+import { Pagination } from "../../components/Pagination";
 
 export default function ArticlePage() {
-  const { data } = useArticleList();
+  const [page, setPage] = React.useState(1);
+  const { data } = useArticleList({
+    isHome: false,
+    page: page.toString(),
+  });
   const articles = data?.data;
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [page]);
+
+  const onClickItem = (label: string) => {
+    const isPrev = label?.includes("&laquo; Previous");
+    const isNext = label?.includes("Next &raquo;");
+    if (isNext) {
+      setPage((prev) => prev + 1);
+    }
+    if (isPrev) {
+      setPage((prev) => prev - 1);
+    }
+    if (!isPrev && !isNext) {
+      setPage(parseInt(label));
+    }
+  };
 
   if (!articles?.length) return null;
 
@@ -113,6 +136,10 @@ export default function ArticlePage() {
               url={`/article/${articles[9]?.uri}`}
             />
           </div>
+          <Pagination
+            onClickItem={onClickItem}
+            paginations={data?.meta?.links}
+          />
         </div>
 
         {/* <div className="py-8 px-20 mt-14">
