@@ -8,6 +8,7 @@ module.exports = {
   ...nextConfig,
   // distDir: "build",
   // output: "export",
+  basePath: '/blog',
   images: {
     remotePatterns: [
       {
