@@ -31,7 +31,7 @@ export const Article = () => {
         >
           Artikel Lainnya
           <Image
-            src="/assets/icons/arrow.svg"
+            src="/blog/assets/icons/arrow.svg"
             width={12}
             height={12}
             alt="arrow"

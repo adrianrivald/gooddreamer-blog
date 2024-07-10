@@ -104,7 +104,7 @@ export default function FAQPage() {
                 placeholder="Cari topik pertanyaan terkait"
               />
               <Image
-                src="/assets/icons/magnifying-glass.svg"
+                src="/blog/assets/icons/magnifying-glass.svg"
                 width={23}
                 height={23}
                 alt="magnifying"
@@ -147,7 +147,7 @@ export default function FAQPage() {
                 className="w-[200px] justify-center rounded-[8px] bg-[#F7F7F7] px-[12px] py-[10px] text-[14px] text-[#BDBDBD] flex items-center gap-2 focus:outline-none"
               >
                 <Image
-                  src="/assets/icons/thumb.svg"
+                  src="/blog/assets/icons/thumb.svg"
                   width={20}
                   height={20}
                   alt="thumb"
@@ -159,7 +159,7 @@ export default function FAQPage() {
                 className="w-[200px] justify-center rounded-[8px] bg-[#F7F7F7] px-[12px] py-[10px] text-[14px] text-[#BDBDBD] flex items-center gap-2 focus:outline-none"
               >
                 <Image
-                  src="/assets/icons/down-thumb.svg"
+                  src="/blog/assets/icons/down-thumb.svg"
                   width={20}
                   height={20}
                   alt="down-thumb"

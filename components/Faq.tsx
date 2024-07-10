@@ -36,7 +36,7 @@ export const Faq = () => {
         >
           Lihat Lainnya
           <Image
-            src="/assets/icons/arrow.svg"
+            src="/blog/assets/icons/arrow.svg"
             width={12}
             height={12}
             alt="arrow"
@@ -53,7 +53,7 @@ export const Faq = () => {
           >
             <span>{faqData && faqData[0]?.question}</span>
             <Image
-              src="/assets/icons/chevron-up.svg"
+              src="/blog/assets/icons/chevron-up.svg"
               width={14}
               height={14}
               alt="chevron"
@@ -77,7 +77,7 @@ export const Faq = () => {
           >
             <span>{faqData && faqData[1]?.question}</span>
             <Image
-              src="/assets/icons/chevron-up.svg"
+              src="/blog/assets/icons/chevron-up.svg"
               width={14}
               height={14}
               alt="chevron"

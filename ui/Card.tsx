@@ -56,7 +56,7 @@ export const Card = (props: CardProps) => {
         >
           Lebih Detail
           <Image
-            src="/assets/icons/arrow.svg"
+            src="/blog/assets/icons/arrow.svg"
             width={12}
             height={12}
             alt="arrow"

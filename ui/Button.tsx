@@ -14,7 +14,12 @@ export const Button = (props: ButtonProps) => {
       {...restProps}
     >
       {label}
-      <Image src="/assets/icons/arrow.svg" width={12} height={12} alt="arrow" />
+      <Image
+        src="/blog/assets/icons/arrow.svg"
+        width={12}
+        height={12}
+        alt="arrow"
+      />
     </button>
   );
 };

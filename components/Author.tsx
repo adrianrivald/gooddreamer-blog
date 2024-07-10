@@ -51,7 +51,7 @@ export const Author = () => {
                 src={
                   (favoriteAuthorsData &&
                     favoriteAuthorsData[0]?.author?.photo_profile) ??
-                  "/assets/images/fallback-ava.webp"
+                  "/blog/assets/images/fallback-ava.webp"
                 }
                 width={214}
                 height={214}
@@ -79,7 +79,7 @@ export const Author = () => {
             </div>
             <div className="flex justify-center items-center gap-2 text-[18px]">
               <Image
-                src="/assets/icons/book.svg"
+                src="/blog/assets/icons/book.svg"
                 width={22}
                 height={22}
                 alt="book"
@@ -91,7 +91,7 @@ export const Author = () => {
             </div>
             <div className="mt-2 flex justify-center items-center gap-2 text-[18px]">
               <Image
-                src="/assets/icons/love.svg"
+                src="/blog/assets/icons/love.svg"
                 width={22}
                 height={22}
                 alt="book"
@@ -115,7 +115,7 @@ export const Author = () => {
                       <Image
                         src={
                           data?.author?.photo_profile ??
-                          "/assets/images/fallback-ava.webp"
+                          "/blog/assets/images/fallback-ava.webp"
                         }
                         width={214}
                         height={214}
@@ -129,7 +129,7 @@ export const Author = () => {
                     <div>
                       <div className="flex items-center gap-1">
                         <Image
-                          src="/assets/icons/flame.svg"
+                          src="/blog/assets/icons/flame.svg"
                           width={12}
                           height={12}
                           alt="flame"
@@ -140,7 +140,7 @@ export const Author = () => {
                       </div>
                       <div className="flex items-center gap-1">
                         <Image
-                          src="/assets/icons/book-purple.svg"
+                          src="/blog/assets/icons/book-purple.svg"
                           width={12}
                           height={12}
                           alt="book"
@@ -151,7 +151,7 @@ export const Author = () => {
                       </div>
                       <div className="flex items-center gap-1">
                         <Image
-                          src="/assets/icons/love-purple.svg"
+                          src="/blog/assets/icons/love-purple.svg"
                           width={12}
                           height={12}
                           alt="love"

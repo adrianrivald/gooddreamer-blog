@@ -32,7 +32,7 @@ export const Event = () => {
         >
           Aktifitas Lainnya
           <Image
-            src="/assets/icons/arrow.svg"
+            src="/blog/assets/icons/arrow.svg"
             width={12}
             height={12}
             alt="arrow"
@@ -69,7 +69,7 @@ export const Event = () => {
                 >
                   Lebih Detail
                   <Image
-                    src="/assets/icons/arrow.svg"
+                    src="/blog/assets/icons/arrow.svg"
                     width={12}
                     height={12}
                     alt="arrow"

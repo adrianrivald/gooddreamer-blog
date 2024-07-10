@@ -22,7 +22,7 @@ export const Navbar = () => {
   return (
     <div className="max-w-[120rem] h-[60px] mx-auto flex justify-between items-center py-8 px-8 lg:px-20 w-full fixed z-50 bg-white">
       <Image
-        src="/assets/images/gooddreamer-logo.svg"
+        src="/blog/assets/images/gooddreamer-logo.svg"
         width={200}
         height={27}
         alt="gooddreamer-logo"

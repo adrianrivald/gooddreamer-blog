@@ -63,7 +63,7 @@ export const Footer = () => {
     <div className="bg-black-primary py-14 px-8 lg:px-20 mt-14 flex flex-col lg:flex-row gap-12 justify-between text-white">
       <div className="w-3/4">
         <Image
-          src="/assets/images/gooddreamer-logo-white.svg"
+          src="/blog/assets/images/gooddreamer-logo-white.svg"
           width={200}
           height={27}
           alt="gooddreamer-logo"
@@ -120,7 +120,7 @@ export const Footer = () => {
               value={emailValue}
             />
             <Image
-              src="/assets/icons/envelope.svg"
+              src="/blog/assets/icons/envelope.svg"
               width={24}
               height={24}
               alt="envelope"
@@ -143,7 +143,7 @@ export const Footer = () => {
               href="https://www.instagram.com/gooddreamerindonesia"
             >
               <Image
-                src="/assets/icons/ig.svg"
+                src="/blog/assets/icons/ig.svg"
                 width={21}
                 height={21}
                 alt="ig"
@@ -154,7 +154,7 @@ export const Footer = () => {
               href="https://www.facebook.com/GoodDreamerOfficial"
             >
               <Image
-                src="/assets/icons/fb.svg"
+                src="/blog/assets/icons/fb.svg"
                 width={21}
                 height={21}
                 alt="fb"
@@ -165,7 +165,7 @@ export const Footer = () => {
               href="https://www.linkedin.com/company/gooddreamer-indonesia/"
             >
               <Image
-                src="/assets/icons/linkedin.svg"
+                src="/blog/assets/icons/linkedin.svg"
                 width={21}
                 height={21}
                 alt="linkedin"
