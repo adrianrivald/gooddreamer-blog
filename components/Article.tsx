@@ -46,6 +46,7 @@ export const Article = () => {
             <div
               onClick={() => onClickArticleItem(article?.uri)}
               className="relative flex flex-col gap-2 cursor-pointer"
+              key={article?.uri}
             >
               <div className="relative flex flex-col gap-2">
                 <Image

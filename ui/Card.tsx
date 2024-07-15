@@ -19,6 +19,7 @@ export const Card = (props: CardProps) => {
     withDetailButton = false,
     url,
     coverHeight = "h-[210px]",
+    ...rest
   } = props;
   const router = useRouter();
 
@@ -29,7 +30,7 @@ export const Card = (props: CardProps) => {
   if (!content) return null;
 
   return (
-    <div className="relative flex flex-col gap-2">
+    <div className="relative flex flex-col gap-2" {...rest}>
       <Image
         src={image}
         width={385}

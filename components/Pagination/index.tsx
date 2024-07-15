@@ -66,10 +66,11 @@ export function Pagination({ meta, page, pageName }: PaginationProps) {
               !value?.label?.includes("&laquo; Previous") &&
               !value?.label?.includes("Next &raquo;")
           )
-          .map((page: any) => {
+          .map((page: any, index: number) => {
             const isDot = page?.label === "...";
             return (
               <div
+                key={index}
                 className={`cursor-pointer flex-none w-[40px] h-[40px] flex justify-center items-center text-center border border-purple-primary ${
                   page?.active === true
                     ? "bg-purple-primary text-white"

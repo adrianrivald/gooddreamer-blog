@@ -26,13 +26,14 @@ export default function PromoPage() {
         </div>
         <div className="grid grid-cols-3 gap-12 py-4 px-20 mt-4">
           {promos &&
-            promos?.map((activity: any) => (
+            promos?.map((promo: any) => (
               <Card
                 withDetailButton
-                image={activity?.thumbnail}
-                title={activity?.title}
-                content={activity?.content_preview}
-                url={`/activity/${activity?.uri}`}
+                image={promo?.thumbnail}
+                title={promo?.title}
+                content={promo?.content_preview}
+                url={`/promo/${promo?.uri}`}
+                key={promo?.uri}
               />
             ))}
         </div>

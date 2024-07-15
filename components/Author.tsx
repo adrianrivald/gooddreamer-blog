@@ -36,7 +36,7 @@ export const Author = () => {
     <div className="p-8 lg:p-20 mt-14 bg-black-primary">
       <h2 className="text-[24px] lg:text-[30px] font-bold text-white text-center lg:w-3/4 mx-auto">
         Jelajahi Dunia Imajinasi Anda Bergabunglah sebagai Penulis Novel dan
-        Dapatkan Akses ke Berbagai Benefit yang Menginspirasi!"
+        Dapatkan Akses ke Berbagai Benefit yang Menginspirasi!
       </h2>
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-between mt-16 items-center">
         <div className="text-white">

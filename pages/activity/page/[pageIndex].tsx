@@ -39,6 +39,7 @@ export default function ActivityPageIndex() {
                 title={activity?.title}
                 content={activity?.content_preview}
                 url={`/activity/${activity?.uri}`}
+                key={activity?.uri}
               />
             ))}
         </div>

@@ -44,7 +44,10 @@ export const Event = () => {
       <div className="flex flex-col gap-8 mt-12">
         {activities?.slice(0, 3).map((activity: any) => {
           return (
-            <div className="relative flex flex-col lg:flex-row gap-6 mt-4">
+            <div
+              className="relative flex flex-col lg:flex-row gap-6 mt-4"
+              key={activity?.uri}
+            >
               <Image
                 onClick={() => onClickActivityItem(activity?.uri)}
                 src={activity?.thumbnail}

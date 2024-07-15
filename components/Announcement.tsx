@@ -38,6 +38,7 @@ export const Announcement = () => {
             <li
               onClick={() => onToDetail(announcement?.uri, "announcement")}
               className="mt-2 text-base cursor-pointer"
+              key={announcement?.uri}
             >
               {announcement?.title}
             </li>
@@ -48,10 +49,11 @@ export const Announcement = () => {
         <h3 className="text-[40px]">Promo Section</h3>
 
         <ul className="list-disc mt-8 ml-4">
-          {promos?.slice(0, 6).map((promo: any) => (
+          {promos?.slice(0, 6).map((promo: any, index: number) => (
             <li
               onClick={() => onToDetail(promo?.uri, "promo")}
               className="mt-2 text-base cursor-pointer"
+              key={index}
             >
               {promo?.title}
             </li>
