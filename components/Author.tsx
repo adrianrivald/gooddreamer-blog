@@ -109,7 +109,10 @@ export const Author = () => {
           <div className="flex flex-col gap-4">
             {favoriteAuthorsData &&
               favoriteAuthorsData?.slice(1).map((data: any, index: number) => (
-                <Link href={`${ENV_URL}/author/${data?.author?.uri}`}>
+                <Link
+                  href={`${ENV_URL}/author/${data?.author?.uri}`}
+                  key={index}
+                >
                   <div className="flex gap-2 items-center border border-grey-secondary rounded-[10px] p-4">
                     <div className="relative">
                       <Image

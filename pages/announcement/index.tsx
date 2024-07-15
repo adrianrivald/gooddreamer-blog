@@ -36,6 +36,7 @@ export default function AnnouncementPage() {
                 title={announcement?.title}
                 content={announcement?.content_preview}
                 url={`/announcement/${announcement?.uri}`}
+                key={announcement?.uri}
               />
             ))}
         </div>
