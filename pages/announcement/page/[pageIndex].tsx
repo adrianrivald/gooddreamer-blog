@@ -39,7 +39,7 @@ export default function AnnouncementPageIndex() {
                 image={announcement?.thumbnail}
                 title={announcement?.title}
                 content={announcement?.content_preview}
-                url={`/announcement/${announcement?.uri}`}
+                url={`/${announcement?.uri}`}
                 key={announcement?.uri}
               />
             ))}

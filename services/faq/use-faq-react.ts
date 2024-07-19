@@ -17,10 +17,7 @@ export function useFaqReact() {
             })
           }).then(res => res.json());
     },
-    onSuccess: () => {
-        toast.success('Terimakasih atas feedbacknya!')
-      },
-      onError: (error) => {
+      onError: (_error) => {
         toast.error('Terjadi error, silakan coba lagi')
       },
   })

@@ -32,7 +32,7 @@ export default function PromoPage() {
                 image={promo?.thumbnail}
                 title={promo?.title}
                 content={promo?.content_preview}
-                url={`/promo/${promo?.uri}`}
+                url={`/${promo?.uri}`}
                 key={promo?.uri}
               />
             ))}

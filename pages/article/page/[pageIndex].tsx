@@ -48,7 +48,7 @@ export default function ArticlePageIndex() {
                 image={articles[1]?.thumbnail}
                 title={articles[1]?.title}
                 content={articles[1]?.content_preview}
-                url={`/article/${articles[1]?.uri}`}
+                url={`/${articles[1]?.uri}`}
               />
             </div>
           </div>

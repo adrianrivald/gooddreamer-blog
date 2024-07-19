@@ -25,7 +25,7 @@ export const Announcement = () => {
 
   const onToDetail = (uri: string, category: string) => {
     router.push({
-      pathname: `/${category}/${uri}`,
+      pathname: `/${uri}`,
     });
   };
 

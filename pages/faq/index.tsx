@@ -24,7 +24,14 @@ export default function FAQPage() {
   const { data, isLoading } = useFaqList();
   const faqQuestion: FaqQuestionProps[] = data?.data;
   const [faqDetail, setFaqDetail] = React.useState<FaqDetailProps>();
+  const [isReacted, setIsReacted] = React.useState(false);
   const { mutate: addReaction } = useFaqReact();
+
+  useEffect(() => {
+    if (isReacted) {
+      setIsReacted(false);
+    }
+  }, [selectedFaqIndex]);
 
   useEffect(() => {
     const getFirstData = async () => {
@@ -49,6 +56,7 @@ export default function FAQPage() {
   };
 
   const onClickReaction = (id?: number, type?: string) => {
+    setIsReacted(true);
     if (id) {
       if (type === "like") {
         addReaction({
@@ -141,32 +149,38 @@ export default function FAQPage() {
             </h1>
             {/* <p className="mt-4">{faqDetail?.createdAt}</p> */}
             <p className="mt-4">{faqDetail?.answer}</p>
-            <div className="flex items-center gap-4 mt-12">
-              <button
-                onClick={() => onClickReaction(faqDetail?.id, "like")}
-                className="w-[200px] justify-center rounded-[8px] bg-[#F7F7F7] px-[12px] py-[10px] text-[14px] text-[#BDBDBD] flex items-center gap-2 focus:outline-none"
-              >
-                <Image
-                  src="/blog/assets/icons/thumb.svg"
-                  width={20}
-                  height={20}
-                  alt="thumb"
-                />
-                <span>Membantu</span>
-              </button>
-              <button
-                onClick={() => onClickReaction(faqDetail?.id, "dislike")}
-                className="w-[200px] justify-center rounded-[8px] bg-[#F7F7F7] px-[12px] py-[10px] text-[14px] text-[#BDBDBD] flex items-center gap-2 focus:outline-none"
-              >
-                <Image
-                  src="/blog/assets/icons/down-thumb.svg"
-                  width={20}
-                  height={20}
-                  alt="down-thumb"
-                />
-                <span>Tidak Membantu</span>
-              </button>
-            </div>
+            {!isReacted ? (
+              <div className="flex items-center gap-4 mt-12">
+                <button
+                  onClick={() => onClickReaction(faqDetail?.id, "like")}
+                  className="w-[200px] justify-center rounded-[8px] bg-[#F7F7F7] px-[12px] py-[10px] text-[14px] text-[#BDBDBD] flex items-center gap-2 focus:outline-none"
+                >
+                  <Image
+                    src="/blog/assets/icons/thumb.svg"
+                    width={20}
+                    height={20}
+                    alt="thumb"
+                  />
+                  <span>Membantu</span>
+                </button>
+                <button
+                  onClick={() => onClickReaction(faqDetail?.id, "dislike")}
+                  className="w-[200px] justify-center rounded-[8px] bg-[#F7F7F7] px-[12px] py-[10px] text-[14px] text-[#BDBDBD] flex items-center gap-2 focus:outline-none"
+                >
+                  <Image
+                    src="/blog/assets/icons/down-thumb.svg"
+                    width={20}
+                    height={20}
+                    alt="down-thumb"
+                  />
+                  <span>Tidak Membantu</span>
+                </button>
+              </div>
+            ) : (
+              <div className="flex justify-center mt-12">
+                Terima kasih telah memberi feedback!
+              </div>
+            )}
           </div>
         </div>
       </main>

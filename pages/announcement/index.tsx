@@ -35,7 +35,7 @@ export default function AnnouncementPage() {
                 image={announcement?.thumbnail}
                 title={announcement?.title}
                 content={announcement?.content_preview}
-                url={`/announcement/${announcement?.uri}`}
+                url={`/${announcement?.uri}`}
                 key={announcement?.uri}
               />
             ))}

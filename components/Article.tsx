@@ -15,7 +15,7 @@ export const Article = () => {
   };
   const onClickArticleItem = (uri: string) => {
     router.push({
-      pathname: `/article/${uri}`,
+      pathname: `/${uri}`,
     });
   };
   return (

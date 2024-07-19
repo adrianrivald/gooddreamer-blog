@@ -16,7 +16,7 @@ export const Event = () => {
 
   const onClickActivityItem = (uri: string) => {
     router.push({
-      pathname: `/activity/${uri}`,
+      pathname: `/${uri}`,
     });
   };
   return (
