@@ -8,7 +8,7 @@ module.exports = {
   ...nextConfig,
   // distDir: "build",
   // output: "export",
-  basePath: '/blog',
+  basePath: "/blog",
   images: {
     remotePatterns: [
       {
@@ -18,6 +18,10 @@ module.exports = {
       {
         protocol: "https",
         hostname: "api.gooddreamer.id",
+      },
+      {
+        protocol: "https",
+        hostname: "storage.gooddreamer.id",
       },
     ],
   },
