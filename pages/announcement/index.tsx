@@ -27,7 +27,7 @@ export default function AnnouncementPage() {
             </h1>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-12 py-4 px-20 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 py-4 px-8 lg:px-20 mt-4">
           {announcements &&
             announcements?.map((announcement: any) => (
               <Card
