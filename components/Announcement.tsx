@@ -46,7 +46,7 @@ export const Announcement = () => {
         </ul>
       </div>
       <div className="py-8 px-8 lg:px-20 bg-yellow-primary text-white min-h-[370px]">
-        <h3 className="text-[40px]">Promo Section</h3>
+        <h3 className="text-[40px]">Promo</h3>
 
         <ul className="list-disc mt-8 ml-4">
           {promos?.slice(0, 6).map((promo: any, index: number) => (
