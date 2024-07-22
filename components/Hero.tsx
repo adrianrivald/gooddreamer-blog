@@ -8,7 +8,7 @@ export const Hero = () => {
   const router = useRouter();
 
   const onToWebsite = () => {
-    router.push(LINK);
+    window.location.href = LINK;
   };
 
   return (
