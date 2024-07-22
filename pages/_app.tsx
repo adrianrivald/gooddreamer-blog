@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/blog/favicon.ico" />
       </Head>
       <QueryClientProvider client={queryClient}>
         <main className="max-w-[120rem] mx-auto">
