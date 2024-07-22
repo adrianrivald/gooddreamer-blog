@@ -56,7 +56,7 @@ export const Author = () => {
                 width={214}
                 height={214}
                 alt="author"
-                className="rounded-full object-cover"
+                className="rounded-full w-[214px] h-[214px] object-cover"
               />
               <div className="border-4 border-white rounded-full w-[55px] h-[55px] bg-red-primary flex justify-center items-center absolute top-2 left-0 text-[25px]">
                 1

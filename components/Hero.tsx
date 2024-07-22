@@ -6,6 +6,11 @@ const LINK = "https://gooddreamer.id";
 
 export const Hero = () => {
   const router = useRouter();
+
+  const onToWebsite = () => {
+    router.push(LINK);
+  };
+
   return (
     <div className="w-full relative bg-gradient-to-r from-[#D3CAE1] to-white min-h-[520px]">
       <div className="absolute top-[16%] left-[5%] text-[20px] lg:text-[50px] text-purple-primary font-bold">
@@ -25,7 +30,7 @@ export const Hero = () => {
           </div>
         </div>
         <button
-          onClick={() => router.push(LINK)}
+          onClick={onToWebsite}
           className="mt-4 lg:mt-0 bg-yellow-primary p-[10px] rounded-[8px] text-purple-primary text-[14px] w-[200px]"
         >
           Jelajahi Sekarang
