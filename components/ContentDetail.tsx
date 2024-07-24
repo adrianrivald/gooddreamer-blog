@@ -22,9 +22,9 @@ export function ContentDetail(props: ContentDetailProps) {
         <Image
           src={props?.data?.image}
           width={1140}
-          height={285}
+          height={385}
           alt="content-image"
-          className="rounded-[10px] w-full h-[285px] object-cover"
+          className="rounded-[10px] w-full max-h-[400px] object-contain"
         />
         <h1 className="text-[32px] lg:text-[40px] text-purple-primary font-bold mt-14">
           {props?.data?.title}
