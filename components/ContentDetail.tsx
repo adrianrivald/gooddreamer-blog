@@ -33,6 +33,7 @@ export function ContentDetail(props: ContentDetailProps) {
           parse(
             DOMPurify.sanitize(
               props?.data?.content
+                ?.replaceAll(`<a `, `<a style="color:blue"`)
                 ?.replaceAll("<p", "<br/><p")
                 ?.replaceAll("<img", "<br/><img")
                 ?.replaceAll("<hr", "<br/><hr")
