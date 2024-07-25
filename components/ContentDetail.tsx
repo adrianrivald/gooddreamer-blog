@@ -60,7 +60,10 @@ export function ContentDetail(props: ContentDetailProps) {
                 ?.replaceAll(
                   "<h3",
                   `<h3 style="font-size:1.5rem;font-weight:bold" `
-                )
+                ),
+              {
+                ADD_ATTR: ["target"],
+              }
             )
           )}
       </main>
