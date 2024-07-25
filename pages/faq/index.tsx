@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
+import parse from "html-react-parser";
+import DOMPurify from "dompurify";
 import React, { useEffect, useState } from "react";
-import { idText } from "typescript";
 import { API_URL } from "../../constants/constants";
 import { useFaqList } from "../../services/faq/use-faq-list";
 import { useFaqReact } from "../../services/faq/use-faq-react";
@@ -148,7 +149,13 @@ export default function FAQPage() {
               {faqDetail?.question}
             </h1>
             {/* <p className="mt-4">{faqDetail?.createdAt}</p> */}
-            <p className="mt-4">{faqDetail?.answer}</p>
+            <p className="mt-4 text-balance">
+              {parse(
+                DOMPurify.sanitize(
+                  (faqDetail?.answer ?? "")?.replaceAll("\n", "<br/>")
+                )
+              )}
+            </p>
             {!isReacted ? (
               <div className="flex items-center gap-4 mt-12">
                 <button
