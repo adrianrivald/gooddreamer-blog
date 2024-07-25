@@ -7,6 +7,7 @@ export interface Content {
     image: string;
     category: Category;
     created_at: string;
+    content_preview: string;
 }
 
 interface Category { 
