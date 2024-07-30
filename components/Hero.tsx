@@ -1,41 +1,51 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
+import Slider from "react-slick";
+import { useBannerList } from "../services/banner/use-banner-list";
 
 const LINK = "https://gooddreamer.id";
 
 export const Hero = () => {
   const router = useRouter();
+  const { data } = useBannerList();
+  const banners = data?.data;
+  console.log(data, "data");
 
-  const onToWebsite = () => {
-    window.location.href = LINK;
+  const onToDetail = (uri: string) => {
+    router.push({
+      pathname: `/${uri}`,
+    });
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: true,
+    autoplaySpeed: 5000,
   };
 
   return (
-    <div className="w-full relative bg-gradient-to-r from-[#D3CAE1] to-white min-h-[520px]">
-      <div className="absolute top-[16%] left-[5%] text-[20px] lg:text-[50px] text-purple-primary font-bold">
-        <div>
-          <div className="bg-white py-1 px-2 inline-block">
-            <h2>Menembus Batas Imajinasi</h2>
-          </div>
-        </div>
-        <div className="mt-4">
-          <div className="bg-white py-1 px-2 inline-block">
-            <h2>Jelajahi Dunia-dunia Baru</h2>
-          </div>
-        </div>
-        <div className="mt-4">
-          <div className="bg-white py-1 px-2 inline-block">
-            <h2>di Website Novel Kami!</h2>
-          </div>
-        </div>
-        <button
-          onClick={onToWebsite}
-          className="mt-4 lg:mt-0 bg-yellow-primary p-[10px] rounded-[8px] text-purple-primary text-[14px] w-[200px]"
+    <Slider className="mt-16 overflow-hidden" {...settings}>
+      {banners?.slice(0, 6).map((banner: any) => (
+        <div
+          // onClick={() => onToDetail(banner?.url)}
+          className="mt-2 text-base cursor-pointer w-full h-[600px]"
+          key={banner?.uri}
         >
-          Jelajahi Sekarang
-        </button>
-      </div>
-    </div>
+          <Image
+            src={banner?.image}
+            width={1280}
+            height={800}
+            className="object-cover w-full h-[600px]"
+            alt="banner"
+          />
+        </div>
+      ))}
+    </Slider>
   );
 };
