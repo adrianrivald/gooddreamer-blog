@@ -21,6 +21,30 @@ a {
   box-sizing: border-box;
 }
 
+.slick-dots {
+  bottom: 2rem !important;
+}
+
+.slick-dots li button:before {
+  font-size: 16px !important;
+}
+
+.slick-next:before {
+  font-size: 40px !important;
+}
+
+.slick-next {
+  right: 5rem !important;
+}
+
+.slick-prev:before {
+  font-size: 40px !important;
+}
+
+.slick-prev {
+  left: 5rem !important;
+  z-index: 50;
+}
 
 @media (prefers-color-scheme: light) {
   html {

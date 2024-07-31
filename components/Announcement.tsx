@@ -18,6 +18,7 @@ export const Announcement = () => {
   const settings = {
     dots: false,
     infinite: false,
+    arrows: false,
     speed: 500,
     slidesToShow: 1.25,
     slidesToScroll: 1,

@@ -13,9 +13,7 @@ export const Hero = () => {
   console.log(data, "data");
 
   const onToDetail = (uri: string) => {
-    router.push({
-      pathname: `/${uri}`,
-    });
+    router.push(`${uri}`);
   };
 
   const settings = {
@@ -27,21 +25,22 @@ export const Hero = () => {
     autoplay: true,
     arrows: true,
     autoplaySpeed: 5000,
+    touchMove: false,
   };
 
   return (
-    <Slider className="mt-16 overflow-hidden" {...settings}>
+    <Slider className="overflow-hidden" {...settings}>
       {banners?.slice(0, 6).map((banner: any) => (
         <div
-          // onClick={() => onToDetail(banner?.url)}
-          className="mt-2 text-base cursor-pointer w-full h-[600px]"
+          onClick={() => onToDetail(banner?.url)}
+          className="mt-2 text-base cursor-pointer w-full "
           key={banner?.uri}
         >
           <Image
             src={banner?.image}
             width={1280}
             height={800}
-            className="object-cover w-full h-[600px]"
+            className="object-fit w-full max-h-[600px]"
             alt="banner"
           />
         </div>
