@@ -19,7 +19,6 @@ export default function AnnouncementPage() {
       </Head>
 
       <main className="">
-        <Hero />
         <div className=" py-8 px-20 mt-14">
           <div className="flex justify-between">
             <h1 className="text-[40px] text-purple-primary font-bold">

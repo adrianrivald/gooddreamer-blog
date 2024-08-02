@@ -22,7 +22,6 @@ export default function ActivityPageIndex() {
       </Head>
 
       <main className="">
-        <Hero />
         <div className=" py-8 px-8 lg:px-20 mt-14">
           <div className="flex justify-between">
             <h1 className="text-[32px] lg:text-[40px] text-purple-primary font-bold">

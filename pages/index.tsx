@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Announcement } from "../components/Announcement";
 import { Article } from "../components/Article";
 import { Author } from "../components/Author";
