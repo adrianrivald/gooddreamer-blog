@@ -22,7 +22,7 @@ export const Hero = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     arrows: true,
     autoplaySpeed: 5000,
     touchMove: false,
@@ -38,9 +38,9 @@ export const Hero = () => {
         >
           <Image
             src={banner?.image}
-            width={1280}
-            height={800}
-            className="object-fit w-full max-h-[600px]"
+            width={1920}
+            height={600}
+            className="object-fit w-full h-[600px] max-w-[1920px] m-auto"
             alt="banner"
           />
         </div>
