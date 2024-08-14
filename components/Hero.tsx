@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import Slider from "react-slick";
@@ -26,25 +27,30 @@ export const Hero = () => {
     arrows: true,
     autoplaySpeed: 5000,
     touchMove: false,
+    draggable: true,
+    swipeToSlide: true,
   };
+  console.log(banners, "banners");
 
   return (
     <Slider className="overflow-hidden" {...settings}>
-      {banners?.slice(0, 6).map((banner: any) => (
-        <div
-          onClick={() => onToDetail(banner?.url)}
-          className="mt-2 text-base cursor-pointer w-full "
-          key={banner?.uri}
-        >
-          <Image
-            src={banner?.image}
-            width={1920}
-            height={600}
-            className="object-fit w-full h-[600px] max-w-[1920px] m-auto"
-            alt="banner"
-          />
-        </div>
-      ))}
+      {banners &&
+        banners?.slice(0, 6).map((banner: any) => (
+          <Link
+            href={banner?.url}
+            target="_blank"
+            className="mt-2 text-base cursor-pointer w-full focus:outline-none"
+            key={banner?.url}
+          >
+            <Image
+              src={banner?.image}
+              width={1920}
+              height={600}
+              className="object-cover w-full max-h-[800px] max-w-[1920px] m-auto"
+              alt="banner"
+            />
+          </Link>
+        ))}
     </Slider>
   );
 };
