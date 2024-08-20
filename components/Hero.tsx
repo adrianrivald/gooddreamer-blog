@@ -19,7 +19,7 @@ export const Hero = () => {
 
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: banners.length > 1 ? true : false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
