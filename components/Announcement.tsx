@@ -31,14 +31,14 @@ export const Announcement = () => {
   };
 
   return (
-    <Slider className="mt-16 overflow-hidden" {...settings}>
-      <div className="py-8 px-8 lg:px-20 bg-purple-primary text-white min-h-[370px]">
-        <h3 className="text-[40px]">Pengumuman</h3>
-        <ul className="list-disc mt-8 ml-4">
+    <Slider className="mt-4 lg:mt-16 overflow-hidden" {...settings}>
+      <div className="py-8 px-8 lg:px-20 bg-purple-primary text-white ">
+        <h3 className="text-[18px] lg:text-[40px]">Pengumuman</h3>
+        <ul className="list-disc mt-8 ml-4 h-[330px]">
           {announcements?.slice(0, 6).map((announcement: any) => (
             <li
               onClick={() => onToDetail(announcement?.uri, "announcement")}
-              className="mt-2 text-base cursor-pointer"
+              className="mt-2 text-sm lg:text-base cursor-pointer"
               key={announcement?.uri}
             >
               {announcement?.title}
@@ -46,10 +46,10 @@ export const Announcement = () => {
           ))}
         </ul>
       </div>
-      <div className="py-8 px-8 lg:px-20 bg-yellow-primary text-white min-h-[370px]">
-        <h3 className="text-[40px]">Promo</h3>
+      <div className="py-8 px-8 lg:px-20 bg-yellow-primary text-white">
+        <h3 className="text-[18px] lg:text-[40px]">Promo</h3>
 
-        <ul className="list-disc mt-8 ml-4">
+        <ul className="list-disc mt-8 ml-4 h-[330px]">
           {promos?.slice(0, 6).map((promo: any, index: number) => (
             <li
               onClick={() => onToDetail(promo?.uri, "promo")}

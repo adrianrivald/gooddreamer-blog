@@ -42,11 +42,11 @@ export const Hero = () => {
             className="mt-2 text-base cursor-pointer w-full focus:outline-none"
             key={banner?.url}
           >
-            <Image
+            <img
               src={banner?.image}
               width={1920}
               height={600}
-              className="object-cover w-full max-h-[800px] max-w-[1920px] m-auto"
+              className="object-cover w-full max-h-[600px] max-w-[1920px] m-auto"
               alt="banner"
             />
           </Link>
