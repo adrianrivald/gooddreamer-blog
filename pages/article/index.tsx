@@ -26,7 +26,7 @@ export default function ArticlePage() {
         <div className="py-8 px-8 lg:px-20 mt-14">
           <div className="flex justify-between">
             <h1 className="text-[40px] text-purple-primary font-bold">
-              Gooddreamer Artikel
+              GoodDreamer Artikel
             </h1>
           </div>
           <div className="flex flex-col lg:flex-row gap-12 mt-8">

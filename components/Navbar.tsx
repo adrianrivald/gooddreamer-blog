@@ -31,16 +31,19 @@ export const Navbar = () => {
       />
       <ol className="hidden lg:flex gap-12 justify-between text-purple-primary">
         <li className="cursor-pointer">
+          <Link href="/promo">Promo</Link>
+        </li>
+        <li className="cursor-pointer">
           <Link href="/announcement">Pengumuman</Link>
         </li>
         <li className="cursor-pointer">
           <Link href="/activity">Aktivitas</Link>
         </li>
         <li className="cursor-pointer">
-          <Link href="https://gooddreamer.id/author">Penulis</Link>
+          <Link href="/article">Artikel</Link>
         </li>
         <li className="cursor-pointer">
-          <Link href="/article">Artikel</Link>
+          <Link href="https://gooddreamer.id/author">Penulis</Link>
         </li>
         <li className="cursor-pointer">
           <Link href="/faq">FAQ</Link>
@@ -84,16 +87,19 @@ export const Navbar = () => {
             <Link href="/">Beranda</Link>
           </li>
           <li>
+            <Link href="/promo">Promo</Link>
+          </li>
+          <li>
             <Link href="/announcement">Pengumuman</Link>
           </li>
           <li>
             <Link href="/activity">Aktivitas</Link>
           </li>
           <li>
-            <Link href="https://gooddreamer.id/author">Penulis</Link>
+            <Link href="/article">Artikel</Link>
           </li>
           <li>
-            <Link href="/article">Artikel</Link>
+            <Link href="https://gooddreamer.id/author">Penulis</Link>
           </li>
           <li>
             <Link href="/faq">FAQ</Link>
