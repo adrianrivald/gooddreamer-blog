@@ -8,11 +8,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import useWindowDimensions from "../utils/use-window-size";
 
 export const Navbar = () => {
   const router = useRouter();
   const { query } = router;
   const [toggleMenu, setToggleMenu] = React.useState(false);
+  const [toggleSearchBar, setToggleSearchBar] = React.useState(false);
+  const { width } = useWindowDimensions();
+  const [initiatePos, setInitiatePos] = React.useState("");
 
   const onClickLogo = () => {
     router.push("/");
@@ -20,6 +24,10 @@ export const Navbar = () => {
 
   const onToggleMenu = () => {
     setToggleMenu((prevState) => !prevState);
+  };
+
+  const onToggleSearchBar = () => {
+    setToggleSearchBar((prevState) => !prevState);
   };
 
   const onSearch = (e: any, close: () => void) => {
@@ -35,8 +43,15 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
+    setInitiatePos(`-right-[${width}px]`);
+  }, [width, initiatePos]);
+
+  useEffect(() => {
     setToggleMenu(false);
+    setToggleSearchBar(false);
   }, [router]);
+
+  if (!initiatePos) return false;
 
   return (
     <div className="max-w-[120rem] h-[60px] mx-auto flex justify-between items-center py-8 px-8 lg:px-20 w-full fixed z-50 bg-white">
@@ -93,7 +108,7 @@ export const Navbar = () => {
                   >
                     <input
                       type="search"
-                      className="flex items-center m-auto p-2 border border-grey-secondary h-[40px] focus:outline-none"
+                      className="w-[280px] flex items-center m-auto p-2 border border-grey-secondary h-[40px] focus:outline-none"
                       name="keyword"
                       defaultValue={query?.q ?? ""}
                     ></input>
@@ -112,20 +127,33 @@ export const Navbar = () => {
       </ol>
 
       {/* Mobile menu */}
-      <div
-        className="flex lg:hidden flex-col cursor-pointer gap-2"
-        onClick={onToggleMenu}
-      >
-        <div className="bg-purple-primary w-[30px] h-[3px]"></div>
-        <div className="bg-purple-primary w-[30px] h-[3px]"></div>
-        <div className="bg-purple-primary w-[30px] h-[3px]"></div>
+      <div className="flex lg:hidden items-center gap-8">
+        <div
+          className="flex lg:hidden flex-col cursor-pointer gap-2"
+          onClick={onToggleMenu}
+        >
+          <div className="bg-purple-primary w-[30px] h-[3px]"></div>
+          <div className="bg-purple-primary w-[30px] h-[3px]"></div>
+          <div className="bg-purple-primary w-[30px] h-[3px]"></div>
+        </div>
+        <Image
+          src="/blog/assets/icons/magnifying-glass-purple.svg"
+          width={23}
+          height={23}
+          alt="magnifying"
+          className="blog lg:hidden w-[30px] h-[30px]"
+          onClick={onToggleSearchBar}
+        />
       </div>
 
       <div
         id="backdrop"
-        onClick={() => setToggleMenu(false)}
+        onClick={() => {
+          setToggleMenu(false);
+          setToggleSearchBar(false);
+        }}
         className={`transition-all bg-black opacity-50 fixed top-0 left-0 w-full h-screen ${
-          toggleMenu ? "block" : "hidden"
+          toggleMenu || toggleSearchBar ? "block" : "hidden"
         }`}
       ></div>
 
@@ -168,6 +196,42 @@ export const Navbar = () => {
             <Link href="/faq">FAQ</Link>
           </li>
         </ul>
+      </div>
+
+      <div
+        className={`transition-all fixed top-0 w-full h-screen bg-white px-8 py-5`}
+        style={{
+          right: toggleSearchBar ? 0 : `-${width}px`,
+        }}
+      >
+        <div className="flex justify-end">
+          <div
+            className="flex lg:hidden flex-col cursor-pointer gap-0"
+            onClick={onToggleSearchBar}
+          >
+            <div className="relative px-8 py-5">
+              <div className="absolute top-4 bg-purple-primary w-[30px] h-[3px] rotate-[45deg]"></div>
+              <div className="absolute top-4 bg-purple-primary w-[30px] h-[3px] rotate-[135deg]"></div>
+            </div>
+          </div>
+        </div>
+        <form
+          onSubmit={(e) => onSearch(e, close)}
+          className="py-2 px-4 flex flex-col items-center gap-3 bg-white"
+        >
+          <input
+            type="search"
+            className="w-full mt-4 flex items-center m-auto p-2 border border-grey-secondary h-[40px] focus:outline-none"
+            name="keyword"
+            defaultValue={query?.q ?? ""}
+          ></input>
+          <button
+            type="submit"
+            className="flex items-center m-auto bg-purple-primary text-white px-4 py-2 h-[40px] w-[100px] text-center justify-center"
+          >
+            Cari
+          </button>
+        </form>
       </div>
       {/* )} */}
     </div>
