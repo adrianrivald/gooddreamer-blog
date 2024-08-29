@@ -10,7 +10,7 @@ interface ContentParams {
 
 export const fetchContentList = async (content : ContentParams) => {
   const res = await fetch(`${API_URL}/contents?` + new URLSearchParams({
-   ...content,
+   ...content as any,
    limit: content?.isHome ? "8" : "10",
   }));
   if (!res.ok) {
