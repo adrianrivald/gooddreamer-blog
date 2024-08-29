@@ -100,7 +100,7 @@ export const Navbar = () => {
                 <PopoverPanel
                   transition
                   anchor="bottom end"
-                  className="z-[99] divide-y divide-white/5 rounded-sm border border-grey-secondary bg-white/5 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:10px] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
+                  className="z-[99] shadow divide-y divide-white/5 rounded-sm border border-grey-third bg-white/5 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:10px] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
                 >
                   <form
                     onSubmit={(e) => onSearch(e, close)}
@@ -108,7 +108,7 @@ export const Navbar = () => {
                   >
                     <input
                       type="search"
-                      className="w-[280px] flex items-center m-auto p-2 border border-grey-secondary h-[40px] focus:outline-none"
+                      className="w-[280px] flex items-center m-auto p-2 border border-grey-third h-[40px] focus:outline-none"
                       name="keyword"
                       defaultValue={query?.q ?? ""}
                     ></input>
@@ -199,7 +199,7 @@ export const Navbar = () => {
       </div>
 
       <div
-        className={`transition-all fixed top-0 w-full h-screen bg-white px-8 py-5`}
+        className={`transition-all fixed top-0 w-full h-screen bg-purple-primary opacity-[85%] px-8 py-5`}
         style={{
           right: toggleSearchBar ? 0 : `-${width}px`,
         }}
@@ -210,24 +210,27 @@ export const Navbar = () => {
             onClick={onToggleSearchBar}
           >
             <div className="relative px-8 py-5">
-              <div className="absolute top-4 bg-purple-primary w-[30px] h-[3px] rotate-[45deg]"></div>
-              <div className="absolute top-4 bg-purple-primary w-[30px] h-[3px] rotate-[135deg]"></div>
+              <div className="absolute top-4 bg-white w-[30px] h-[3px] rotate-[45deg]"></div>
+              <div className="absolute top-4 bg-white w-[30px] h-[3px] rotate-[135deg]"></div>
             </div>
           </div>
         </div>
         <form
           onSubmit={(e) => onSearch(e, close)}
-          className="py-2 px-4 flex flex-col items-center gap-3 bg-white"
+          className="py-2 px-4 flex flex-col items-center gap-3"
         >
           <input
-            type="search"
-            className="w-full mt-4 flex items-center m-auto p-2 border border-grey-secondary h-[40px] focus:outline-none"
+            type="text"
+            className="w-full text-center border-b bg-transparent border-white mt-4 flex items-center m-auto p-2 text-white h-[40px] focus:outline-none"
             name="keyword"
+            style={{
+              fontSize: "30px",
+            }}
             defaultValue={query?.q ?? ""}
           ></input>
           <button
             type="submit"
-            className="flex items-center m-auto bg-purple-primary text-white px-4 py-2 h-[40px] w-[100px] text-center justify-center"
+            className="font-bold flex bg-yellow-primary items-center m-auto bg-purple-primary text-purple-primary px-4 py-2 h-[40px] w-[100px] text-center justify-center"
           >
             Cari
           </button>
