@@ -4,7 +4,7 @@ import React, { Dispatch, SetStateAction } from "react";
 interface PaginationProps {
   meta: any;
   page: number;
-  pageName: "article" | "activity" | "announcement" | "promo";
+  pageName: "article" | "activity" | "announcement" | "promo" | "search";
 }
 
 export function Pagination({ meta, page, pageName }: PaginationProps) {
@@ -25,10 +25,16 @@ export function Pagination({ meta, page, pageName }: PaginationProps) {
             pathname: `/${pageName}/page/${
               parseInt(query?.pageIndex as string) + 1
             }`,
+            query: query?.q && {
+              q: query?.q,
+            },
           });
         } else {
           router.push({
             pathname: `/${pageName}/page/2`,
+            query: query?.q && {
+              q: query?.q,
+            },
           });
         }
       }
@@ -37,11 +43,17 @@ export function Pagination({ meta, page, pageName }: PaginationProps) {
           pathname: `/${pageName}/page/${
             parseInt(query?.pageIndex as string) - 1
           }`,
+          query: query?.q && {
+            q: query?.q,
+          },
         });
       }
       if (!isPrev && !isNext) {
         router.push({
           pathname: `/${pageName}/page/${parseInt(label).toString()}`,
+          query: query?.q && {
+            q: query?.q,
+          },
         });
       }
     }

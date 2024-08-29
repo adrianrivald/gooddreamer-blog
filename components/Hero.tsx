@@ -11,7 +11,6 @@ export const Hero = () => {
   const router = useRouter();
   const { data } = useBannerList();
   const banners = data?.data;
-  console.log(data, "data");
 
   const onToWebsite = () => {
     router.push("https://gooddreamer.id");
@@ -23,14 +22,13 @@ export const Hero = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     arrows: true,
     autoplaySpeed: 5000,
     touchMove: false,
     draggable: true,
     swipeToSlide: true,
   };
-  console.log(banners, "banners");
 
   return (
     <>

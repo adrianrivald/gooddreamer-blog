@@ -1,3 +1,9 @@
+import {
+  Popover,
+  PopoverBackdrop,
+  PopoverButton,
+  PopoverPanel,
+} from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -5,6 +11,7 @@ import React, { useEffect } from "react";
 
 export const Navbar = () => {
   const router = useRouter();
+  const { query } = router;
   const [toggleMenu, setToggleMenu] = React.useState(false);
 
   const onClickLogo = () => {
@@ -13,6 +20,18 @@ export const Navbar = () => {
 
   const onToggleMenu = () => {
     setToggleMenu((prevState) => !prevState);
+  };
+
+  const onSearch = (e: any, close: () => void) => {
+    e.preventDefault();
+    const keyword = e.target[0].value;
+    router.push({
+      pathname: "/search",
+      query: {
+        q: keyword,
+      },
+    });
+    close();
   };
 
   useEffect(() => {
@@ -29,6 +48,7 @@ export const Navbar = () => {
         onClick={onClickLogo}
         className="cursor-pointer"
       />
+      {/* Web menu */}
       <ol className="hidden lg:flex gap-12 justify-between text-purple-primary">
         <li className="cursor-pointer">
           <Link href="/promo">Promo</Link>
@@ -48,7 +68,50 @@ export const Navbar = () => {
         <li className="cursor-pointer">
           <Link href="/faq">FAQ</Link>
         </li>
+        <li className="cursor-pointer">
+          <Popover>
+            {({ close }) => (
+              <>
+                <PopoverButton className="focus:outline-none">
+                  <Image
+                    src="/blog/assets/icons/magnifying-glass-purple.svg"
+                    width={23}
+                    height={23}
+                    alt="magnifying"
+                  />
+                </PopoverButton>
+                {/* <PopoverBackdrop className="fixed inset-0 bg-black/15" /> */}
+
+                <PopoverPanel
+                  transition
+                  anchor="bottom end"
+                  className="z-[99] divide-y divide-white/5 rounded-sm border border-grey-secondary bg-white/5 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:10px] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
+                >
+                  <form
+                    onSubmit={(e) => onSearch(e, close)}
+                    className="py-2 px-4 flex items-center gap-1 bg-white"
+                  >
+                    <input
+                      type="search"
+                      className="flex items-center m-auto p-2 border border-grey-secondary h-[40px] focus:outline-none"
+                      name="keyword"
+                      defaultValue={query?.q ?? ""}
+                    ></input>
+                    <button
+                      type="submit"
+                      className="flex items-center m-auto bg-purple-primary text-white px-4 py-2 h-[40px]"
+                    >
+                      Cari
+                    </button>
+                  </form>
+                </PopoverPanel>
+              </>
+            )}
+          </Popover>
+        </li>
       </ol>
+
+      {/* Mobile menu */}
       <div
         className="flex lg:hidden flex-col cursor-pointer gap-2"
         onClick={onToggleMenu}
