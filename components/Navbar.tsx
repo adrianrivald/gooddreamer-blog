@@ -100,7 +100,7 @@ export const Navbar = () => {
                 <PopoverPanel
                   transition
                   anchor="bottom end"
-                  className="z-[99] shadow divide-y divide-white/5 rounded-sm border border-grey-third bg-white/5 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:10px] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
+                  className="z-[99] shadow divide-y divide-white/5 rounded-sm border border-grey-secondary bg-white/5 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:10px] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
                 >
                   <form
                     onSubmit={(e) => onSearch(e, close)}
@@ -108,7 +108,7 @@ export const Navbar = () => {
                   >
                     <input
                       type="search"
-                      className="w-[280px] flex items-center m-auto p-2 border border-grey-third h-[40px] focus:outline-none"
+                      className="w-[280px] flex items-center m-auto p-2 border border-grey-secondary h-[40px] focus:outline-none"
                       name="keyword"
                       defaultValue={query?.q ?? ""}
                     ></input>
