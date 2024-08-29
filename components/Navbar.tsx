@@ -54,7 +54,7 @@ export const Navbar = () => {
   if (!initiatePos) return false;
 
   return (
-    <div className="max-w-[120rem] h-[60px] mx-auto flex justify-between items-center py-8 px-8 lg:px-20 w-full fixed z-50 bg-white">
+    <div className="max-w-[120rem] h-[60px] mx-auto flex justify-between items-center py-8 px-8 lg:px-20 w-full fixed z-50 bg-white shadow">
       <Image
         src="/blog/assets/images/gooddreamer-logo.svg"
         width={200}
