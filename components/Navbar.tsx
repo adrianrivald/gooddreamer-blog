@@ -33,13 +33,15 @@ export const Navbar = () => {
   const onSearch = (e: any, close: () => void) => {
     e.preventDefault();
     const keyword = e.target[0].value;
-    router.push({
-      pathname: "/search",
-      query: {
-        q: keyword,
-      },
-    });
-    close();
+    if (keyword?.length > 0) {
+      router.push({
+        pathname: "/search",
+        query: {
+          q: keyword,
+        },
+      });
+      close();
+    }
   };
 
   useEffect(() => {
