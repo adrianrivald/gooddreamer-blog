@@ -13,6 +13,7 @@ import useWindowDimensions from "../utils/use-window-size";
 export const Navbar = () => {
   const router = useRouter();
   const { query } = router;
+  const [keyword, setKeyword] = React.useState("");
   const [toggleMenu, setToggleMenu] = React.useState(false);
   const [toggleSearchBar, setToggleSearchBar] = React.useState(false);
   const { width } = useWindowDimensions();
@@ -48,6 +49,7 @@ export const Navbar = () => {
         },
       });
       close();
+      setKeyword("");
     }
   };
 
@@ -131,6 +133,8 @@ export const Navbar = () => {
                       name="keyword"
                       // TODO: fix type ref
                       ref={inputRef as any}
+                      value={keyword}
+                      onChange={(e) => setKeyword(e.target.value)}
                     ></input>
                     <button
                       type="submit"
@@ -248,6 +252,9 @@ export const Navbar = () => {
             style={{
               fontSize: "30px",
             }}
+            defaultValue=""
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
           ></input>
           <button
             type="submit"
