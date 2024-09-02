@@ -12,5 +12,5 @@ export const fetchFaqId = async (faqId: number) => {
 };
 
 export const useFaqById = (faqId: number) => {
-  return useQuery({queryKey: ["faq-detail"], queryFn: () => fetchFaqId(faqId)});
+  return useQuery({queryKey: ["faq-detail"], queryFn: () => fetchFaqId(faqId), refetchOnWindowFocus: false});
 };

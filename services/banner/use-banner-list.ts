@@ -12,5 +12,5 @@ export const fetchBannerList = async () => {
 };
 
 export const useBannerList = () => {
-  return useQuery({queryKey: ["banner-list"], queryFn: fetchBannerList});
+  return useQuery({queryKey: ["banner-list"], queryFn: fetchBannerList, refetchOnWindowFocus: false});
 };

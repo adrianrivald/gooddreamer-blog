@@ -7,7 +7,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { MutableRefObject, useEffect, useRef } from "react";
 import useWindowDimensions from "../utils/use-window-size";
 
 export const Navbar = () => {
@@ -17,6 +17,8 @@ export const Navbar = () => {
   const [toggleSearchBar, setToggleSearchBar] = React.useState(false);
   const { width } = useWindowDimensions();
   const [initiatePos, setInitiatePos] = React.useState("");
+  const inputRef = useRef<HTMLLinkElement>(null);
+  const inputRefMobile = useRef<HTMLLinkElement>(null);
 
   const onClickLogo = () => {
     router.push("/");
@@ -28,6 +30,11 @@ export const Navbar = () => {
 
   const onToggleSearchBar = () => {
     setToggleSearchBar((prevState) => !prevState);
+    setTimeout(() => {
+      if (inputRefMobile.current !== null) {
+        inputRefMobile.current.focus();
+      }
+    }, 200);
   };
 
   const onSearch = (e: any, close: () => void) => {
@@ -52,6 +59,14 @@ export const Navbar = () => {
     setToggleMenu(false);
     setToggleSearchBar(false);
   }, [router]);
+
+  const onClickIconSearch = () => {
+    setTimeout(() => {
+      if (inputRef.current !== null) {
+        inputRef.current.focus();
+      }
+    }, 200);
+  };
 
   if (!initiatePos) return false;
 
@@ -89,7 +104,10 @@ export const Navbar = () => {
           <Popover>
             {({ close }) => (
               <>
-                <PopoverButton className="focus:outline-none">
+                <PopoverButton
+                  onClick={onClickIconSearch}
+                  className="focus:outline-none"
+                >
                   <Image
                     src="/blog/assets/icons/magnifying-glass-purple.svg"
                     width={23}
@@ -97,7 +115,6 @@ export const Navbar = () => {
                     alt="magnifying"
                   />
                 </PopoverButton>
-                {/* <PopoverBackdrop className="fixed inset-0 bg-black/15" /> */}
 
                 <PopoverPanel
                   transition
@@ -112,7 +129,8 @@ export const Navbar = () => {
                       type="search"
                       className="w-[280px] flex items-center m-auto p-2 border border-grey-secondary h-[40px] focus:outline-none"
                       name="keyword"
-                      defaultValue={query?.q ?? ""}
+                      // TODO: fix type ref
+                      ref={inputRef as any}
                     ></input>
                     <button
                       type="submit"
@@ -222,13 +240,14 @@ export const Navbar = () => {
           className="py-2 px-4 flex flex-col items-center gap-3"
         >
           <input
+            // TODO: fix type ref
+            ref={inputRefMobile as any}
             type="text"
             className="w-full text-center border-b bg-transparent border-white mt-4 flex items-center m-auto p-2 text-white h-[40px] focus:outline-none"
             name="keyword"
             style={{
               fontSize: "30px",
             }}
-            defaultValue={query?.q ?? ""}
           ></input>
           <button
             type="submit"

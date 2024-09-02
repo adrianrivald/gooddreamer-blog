@@ -27,21 +27,21 @@ interface ContentProps {
 }
 
 export const useArticleList = ({isHome, page = '1'} : ContentProps) => {
-  return useQuery({queryKey: ["article-list", page], queryFn: () =>fetchContentList({slug: "article", page: page, isHome})});
+  return useQuery({queryKey: ["article-list", page], queryFn: () =>fetchContentList({slug: "article", page: page, isHome}), refetchOnWindowFocus: false});
 };
 
 export const useAnnouncementList = (page = "1") => {
-  return useQuery({queryKey: ["announcement-list", page], queryFn: () =>fetchContentList({slug: "announcement", page})});
+  return useQuery({queryKey: ["announcement-list", page], queryFn: () =>fetchContentList({slug: "announcement", page}), refetchOnWindowFocus: false});
 };
 
 export const usePromoList = (page = "1") => {
-  return useQuery({queryKey: ["promo-list", page], queryFn: () =>fetchContentList({slug:"promo", page})});
+  return useQuery({queryKey: ["promo-list", page], queryFn: () =>fetchContentList({slug:"promo", page}), refetchOnWindowFocus: false});
 };
 
 export const useActivityList = (page = "1") => {
-  return useQuery({queryKey: ["activity-list", page], queryFn: () =>fetchContentList({slug:"activity", page})});
+  return useQuery({queryKey: ["activity-list", page], queryFn: () =>fetchContentList({slug:"activity", page}), refetchOnWindowFocus: false});
 };
 
 export const useContentList = (page = "1", q?: string | string[]) => {
-  return useQuery({queryKey: ["content-list", page], queryFn: () =>fetchContentList({page, q})});
+  return useQuery({queryKey: ["content-list", page], queryFn: () =>fetchContentList({page, q}), refetchOnWindowFocus: false});
 };

@@ -12,5 +12,5 @@ export const fetchFavoriteAuthorsList = async () => {
 };
 
 export const useFavoriteAuthorsList = () => {
-  return useQuery({queryKey: ["favorite-authors-list"], queryFn: fetchFavoriteAuthorsList});
+  return useQuery({queryKey: ["favorite-authors-list"], queryFn: fetchFavoriteAuthorsList, refetchOnWindowFocus: false});
 };

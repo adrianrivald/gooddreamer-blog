@@ -25,5 +25,5 @@ export const fetchFaqHomeList = async () => {
 };
 
 export const useFaqHomeList = () => {
-  return useQuery({queryKey: ["faq-home-list"], queryFn: fetchFaqHomeList});
+  return useQuery({queryKey: ["faq-home-list"], queryFn: fetchFaqHomeList, refetchOnWindowFocus: false});
 };
