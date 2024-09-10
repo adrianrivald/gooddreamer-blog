@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { API_URL } from '../../constants/constants';
 
 interface ContentParams {
-  slug?: string;
+  category?: string;
   page: string;
   isHome?: boolean;
   q?: string | string[]
@@ -27,19 +27,19 @@ interface ContentProps {
 }
 
 export const useArticleList = ({isHome, page = '1'} : ContentProps) => {
-  return useQuery({queryKey: ["article-list", page], queryFn: () =>fetchContentList({slug: "article", page: page, isHome}), refetchOnWindowFocus: false});
+  return useQuery({queryKey: ["article-list", page], queryFn: () =>fetchContentList({category: "article", page: page, isHome}), refetchOnWindowFocus: false});
 };
 
 export const useAnnouncementList = (page = "1") => {
-  return useQuery({queryKey: ["announcement-list", page], queryFn: () =>fetchContentList({slug: "announcement", page}), refetchOnWindowFocus: false});
+  return useQuery({queryKey: ["announcement-list", page], queryFn: () =>fetchContentList({category: "announcement", page}), refetchOnWindowFocus: false});
 };
 
 export const usePromoList = (page = "1") => {
-  return useQuery({queryKey: ["promo-list", page], queryFn: () =>fetchContentList({slug:"promo", page}), refetchOnWindowFocus: false});
+  return useQuery({queryKey: ["promo-list", page], queryFn: () =>fetchContentList({category:"promo", page}), refetchOnWindowFocus: false});
 };
 
 export const useActivityList = (page = "1") => {
-  return useQuery({queryKey: ["activity-list", page], queryFn: () =>fetchContentList({slug:"activity", page}), refetchOnWindowFocus: false});
+  return useQuery({queryKey: ["activity-list", page], queryFn: () =>fetchContentList({category:"activity", page}), refetchOnWindowFocus: false});
 };
 
 export const useContentList = (page = "1", q?: string | string[]) => {
