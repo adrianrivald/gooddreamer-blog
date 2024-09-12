@@ -39,7 +39,7 @@ export default function ArticlePageIndex() {
                 image={articles[0]?.thumbnail}
                 title={articles[0]?.title}
                 content={articles[0]?.content_preview}
-                url={`/article/${articles[0]?.uri}`}
+                url={`/${articles[0]?.uri}`}
               />
             </div>
             <div className="w-full lg:w-1/4">
@@ -58,21 +58,21 @@ export default function ArticlePageIndex() {
               image={articles[2]?.thumbnail}
               title={articles[2]?.title}
               content={articles[2]?.content_preview}
-              url={`/article/${articles[2]?.uri}`}
+              url={`/${articles[2]?.uri}`}
             />
             <Card
               withDetailButton
               image={articles[3]?.thumbnail}
               title={articles[3]?.title}
               content={articles[3]?.content_preview}
-              url={`/article/${articles[3]?.uri}`}
+              url={`/${articles[3]?.uri}`}
             />
             <Card
               withDetailButton
               image={articles[4]?.thumbnail}
               title={articles[4]?.title}
               content={articles[4]?.content_preview}
-              url={`/article/${articles[4]?.uri}`}
+              url={`/${articles[4]?.uri}`}
             />
           </div>
 
@@ -83,7 +83,7 @@ export default function ArticlePageIndex() {
                 image={articles[5]?.thumbnail}
                 title={articles[5]?.title}
                 content={articles[5]?.content_preview}
-                url={`/article/${articles[5]?.uri}`}
+                url={`/${articles[5]?.uri}`}
               />
             </div>
             <div className="w-full lg:w-1/4">
@@ -92,7 +92,7 @@ export default function ArticlePageIndex() {
                 image={articles[6]?.thumbnail}
                 title={articles[6]?.title}
                 content={articles[6]?.content_preview}
-                url={`/article/${articles[6]?.uri}`}
+                url={`/${articles[6]?.uri}`}
               />
             </div>
           </div>
@@ -102,21 +102,21 @@ export default function ArticlePageIndex() {
               image={articles[7]?.thumbnail}
               title={articles[7]?.title}
               content={articles[7]?.content_preview}
-              url={`/article/${articles[7]?.uri}`}
+              url={`/${articles[7]?.uri}`}
             />
             <Card
               withDetailButton
               image={articles[8]?.thumbnail}
               title={articles[8]?.title}
               content={articles[8]?.content_preview}
-              url={`/article/${articles[8]?.uri}`}
+              url={`/${articles[8]?.uri}`}
             />
             <Card
               withDetailButton
               image={articles[9]?.thumbnail}
               title={articles[9]?.title}
               content={articles[9]?.content_preview}
-              url={`/article/${articles[9]?.uri}`}
+              url={`/${articles[9]?.uri}`}
             />
           </div>
           <Pagination pageName="article" page={page} meta={data?.meta} />
