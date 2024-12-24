@@ -147,6 +147,7 @@ export default function StoryTellingProgramPage() {
                       rel="noopener noreferrer"
                       target="_blank"
                       href="https://docs.google.com/forms/d/e/1FAIpQLSdCzDlGckz7n3b22YI2CXEWWLBp6ZIu7Aa7Z1goiuR2Iy7UBg/viewform?usp=sf_link "
+                      className="text-blue-primary underline"
                     >
                       Google Form yang sudah disediakan.
                     </a>
@@ -182,6 +183,17 @@ export default function StoryTellingProgramPage() {
                 />
               </div>
             </div>
+          </div>
+          <div className="w-full flex justify-center mx-auto mt-8">
+            <Link
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdCzDlGckz7n3b22YI2CXEWWLBp6ZIu7Aa7Z1goiuR2Iy7UBg/viewform?usp=sf_link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-purple-primary p-3 rounded-lg text-white focus:outline-none">
+                Daftar GoodDreamer Storytelling Program disini
+              </button>
+            </Link>
           </div>
           <div className="mt-20">
             <h1 className="text-purple-primary text-[30px] font-bold ">
