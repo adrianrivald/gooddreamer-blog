@@ -103,7 +103,7 @@ export const Navbar = () => {
           <Link href="/faq">FAQ</Link>
         </li>
         <li className="cursor-pointer">
-          <Link href="/storytelling-program">Story Telling Program</Link>
+          <Link href="/storytelling-program">Storytelling Program</Link>
         </li>
         <li className="cursor-pointer">
           <Popover>
@@ -223,7 +223,7 @@ export const Navbar = () => {
             <Link href="/faq">FAQ</Link>
           </li>
           <li>
-            <Link href="/storytelling-program">Story Telling Program</Link>
+            <Link href="/storytelling-program">Storytelling Program</Link>
           </li>
         </ul>
       </div>
