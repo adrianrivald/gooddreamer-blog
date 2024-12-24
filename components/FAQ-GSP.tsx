@@ -92,7 +92,7 @@ export const FaqGsp = () => {
           onClick={onToggleFaq1}
           className="cursor-pointer flex justify-between text-[20px]"
         >
-          <span>{faqData && faqData[0]?.question}</span>
+          <span>Apakah ada target pendapatan setiap bulannya?</span>
           <Image
             src="/blog/assets/icons/chevron-up.svg"
             width={14}
@@ -113,7 +113,11 @@ export const FaqGsp = () => {
               toggleFaq1 ? "block" : "hidden"
             } transition-all`}
           >
-            <p>{faqData && faqData[0]?.answer}</p>
+            <p>
+              Tidak ada target. Semakin rajin Storyteller membagikan
+              tautan/link, maka semakin besar juga potensi komisi yang akan
+              didapatkan.
+            </p>
           </div>
         </div>
       </div>
@@ -122,7 +126,7 @@ export const FaqGsp = () => {
           onClick={onToggleFaq2}
           className="cursor-pointer flex justify-between text-[20px]"
         >
-          <span>{faqData && faqData[1]?.question}</span>
+          <span>Apakah ada target posting konten?</span>
           <Image
             src="/blog/assets/icons/chevron-up.svg"
             width={14}
