@@ -50,14 +50,14 @@ export default function StoryTellingProgramPage() {
             <div className="p-4 text-[20px] bg-purple-secondary flex-auto rounded-[18px]">
               GoodDreamer Storytelling Program adalah program afiliasi yang
               memberi peluang bagi Storyteller (afiliator) untuk mendapat
-              penghasilan dengan membagikan link novel digital GoodDreamer di
-              media sosial, YouTube, WhatsApp, atau website. Setiap transaksi
-              menghasilkan komisi untuk Storyteller.
+              penghasilan dengan membagikan <i>link</i> novel digital
+              GoodDreamer di media sosial, YouTube, WhatsApp, atau website.
+              Setiap transaksi menghasilkan komisi untuk Storyteller.
             </div>
           </div>
           <div className="mt-20">
             <h1 className="text-purple-primary text-[30px] font-bold ">
-              Keuntungan MengikutI GDSP
+              Keuntungan Mengikuti GDSP
             </h1>
             <div className="flex flex-col items-center xl:flex-row gap-24 mt-10">
               <div className="w-1/3">
@@ -158,9 +158,8 @@ export default function StoryTellingProgramPage() {
                   </li>
                   <li>
                     Menerima <i>email approval</i> yang berisi{" "}
-                    <i>link personal</i>. <i>Approval</i>
-                    hanya diberikan kepada Storyteller yang lolos proses
-                    validasi data.
+                    <i>link personal</i>. <i>Approval</i> hanya diberikan kepada
+                    Storyteller yang lolos proses validasi data.
                   </li>
                   <li>
                     Mulai bagikan <i>link personal</i> dan dapatkan penghasilan

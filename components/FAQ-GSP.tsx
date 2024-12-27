@@ -16,8 +16,8 @@ export const FaqGsp = () => {
       answer: (
         <span>
           Tidak ada target. Semakin rajin Storyteller membagikan tautan/
-          <i>link</i>, maka semakin besar juga potensi komisi yang akan
-          didapatkan.
+          <span className="italic">links</span>, maka semakin besar juga potensi
+          komisi yang akan didapatkan.
         </span>
       ),
     },
@@ -114,8 +114,8 @@ export const FaqGsp = () => {
             } transition-all`}
           >
             <p>
-              Tidak ada target. Semakin rajin Storyteller membagikan
-              tautan/link, maka semakin besar juga potensi komisi yang akan
+              Tidak ada target. Semakin rajin Storyteller membagikan tautan/
+              <i>link</i>, maka semakin besar juga potensi komisi yang akan
               didapatkan.
             </p>
           </div>
